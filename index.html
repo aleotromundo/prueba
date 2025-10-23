@@ -92,8 +92,8 @@
       width: 50px; 
       height: 50px;
       animation: floatUp 10s linear;
-      /* MODIFICADO: Filtro CSS para cambiar el color de las imágenes a azul */
-      filter: sepia(1) hue-rotate(170deg) saturate(500%) brightness(0.8);
+      /* ELIMINADO: Filtro CSS que cambiaba el color de las imágenes a azul, para mostrar el logo a color. */
+      /* filter: sepia(1) hue-rotate(170deg) saturate(500%) brightness(0.8); */
     }
 
     @keyframes floatUp {
@@ -607,7 +607,7 @@
 
   <!-- Navbar -->
   <nav>
-    <a href="#"><img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia.png" alt="Full Agua Service" class="logo" width="100" height="90"></a>
+    <a href="#"><img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia.png" alt="Full Agua Service" class="logo" width="90" height="90"></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
@@ -1091,18 +1091,16 @@
       });
 
       const toolContainer = document.getElementById('floating-tools-container');
+      // MODIFICADO: Se utiliza el favicon (versión de 192x192) que es el icono sin texto, para la animación flotante.
       const toolImages = [
-        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_4.png',
-        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_5.png',
-        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_6.png',
-        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_8.png'
+        'https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia-192x192.png'
       ];
 
       function createTool() {
         const tool = document.createElement('img');
         tool.className = 'floating-tool';
         
-        tool.src = toolImages[Math.floor(Math.random() * toolImages.length)];
+        tool.src = toolImages[0];
         // AGREGADO: width y height para CLS
         tool.width = 50; 
         tool.height = 50;
