@@ -51,6 +51,49 @@
       transition: var(--transition);
     }
 
+    /* --- NUEVO: Estilos para el fondo de partículas y herramientas --- */
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Para que esté detrás de todo */
+    }
+
+    #floating-tools-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Permite hacer clic a través del contenedor */
+      z-index: 1; /* Encima del contenido, pero debajo del menú */
+      overflow: hidden;
+    }
+
+    .floating-tool {
+      position: absolute;
+      bottom: -100px; /* Empieza fuera de la pantalla */
+      opacity: 0;
+      width: 50px; /* Tamaño de la herramienta */
+      height: 50px;
+      animation: floatUp 10s linear;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+      to {
+        transform: translateY(-120vh); /* Sube hasta desaparecer por arriba */
+        opacity: 0;
+      }
+    }
+    /* --- FIN DE NUEVOS ESTILOS --- */
+
+
     /* Navbar */
     nav {
       position: fixed;
@@ -117,7 +160,7 @@
     header {
       padding: 140px 5% 80px;
       text-align: center;
-      max-width: 800px;
+      max-width: 800px; 
       margin: 0 auto;
     }
 
@@ -279,7 +322,6 @@
     /* Proyectos */
     .projects {
       display: grid;
-      /* MODIFICADO: Reducido de 280px a 240px para que entren 4 imágenes */
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.8rem;
     }
@@ -383,6 +425,10 @@
   </style>
 </head>
 <body class="dark-mode">
+
+  <!-- NUEVO: Contenedores para efectos de fondo -->
+  <div id="tsparticles"></div>
+  <div id="floating-tools-container"></div>
 
   <!-- Navbar -->
   <nav>
@@ -629,6 +675,9 @@
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
   <script>
     // Modo claro/oscuro
     const body = document.body;
@@ -677,6 +726,102 @@
         document.body.style.overflow = 'auto';
       }
     });
+
+    // --- NUEVO: Script para partículas y herramientas flotantes ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configuración de tsParticles
+      tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        particles: {
+          number: {
+            value: 40,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: "#ffffff"
+          },
+          shape: {
+            type: "circle"
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: false,
+            }
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "top",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          }
+        },
+        interactivity: {
+          detectsOn: "canvas",
+          events: {
+            onHover: {
+              enable: false,
+            },
+            onClick: {
+              enable: false,
+            },
+            resize: true
+          }
+        },
+        detectRetina: true
+      });
+
+      // Lógica para herramientas flotantes
+      const toolContainer = document.getElementById('floating-tools-container');
+      const toolImages = [
+        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_4.png',
+        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_5.png',
+        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_6.png',
+        'https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_8.png'
+      ];
+
+      function createTool() {
+        const tool = document.createElement('img');
+        tool.className = 'floating-tool';
+        
+        // Elige una imagen al azar
+        tool.src = toolImages[Math.floor(Math.random() * toolImages.length)];
+        
+        // Posición horizontal aleatoria
+        tool.style.left = Math.random() * 95 + 'vw';
+        
+        // Duración de animación aleatoria para un efecto más natural
+        tool.style.animationDuration = (Math.random() * 5 + 8) + 's'; // Entre 8 y 13 segundos
+
+        toolContainer.appendChild(tool);
+
+        // Elimina la herramienta del DOM después de que termine su animación
+        setTimeout(() => {
+          tool.remove();
+        }, 13000); // Un poco más que la duración máxima de la animación
+      }
+
+      // Crea una nueva herramienta cada 3 segundos
+      setInterval(createTool, 3000);
+    });
+
   </script>
 </body>
 </html>
