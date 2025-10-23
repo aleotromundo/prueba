@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Full Agua Service — Solución de pérdidas</title>
+  <title>Full Agua Service — Soluciones en Plomería</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -117,7 +117,7 @@
     header {
       padding: 140px 5% 80px;
       text-align: center;
-      max-width: 900px;
+      max-width: 800px; /* MODIFICADO: Reducido de 900px a 800px */
       margin: 0 auto;
     }
 
@@ -160,6 +160,12 @@
     /* Secciones */
     section {
       padding: 80px 5%;
+    }
+
+    /* NUEVO: Contenedor para centrar el contenido de las secciones */
+    .section-container {
+        max-width: 700px;
+        margin: 0 auto;
     }
 
     .section-title {
@@ -383,7 +389,9 @@
     <a href="#"><img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia.png" alt="Full Agua Service" class="logo"></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div style="display:flex;align-items:center;">
@@ -406,85 +414,148 @@
 
   <!-- Servicios -->
   <section id="servicios">
-    <h2 class="section-title">Nuestros Servicios</h2>
-    <div class="services">
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_4.png" alt="Baños">
+    <div class="section-container">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_4.png" alt="Baños">
+          </div>
+          <h3>Baños y Caños</h3>
+          <p>Instalación y reparación profesional en hogares y empresas.</p>
+          <div class="read-more" onclick="openModal('banos')">Leer más</div>
         </div>
-        <h3>Baños y Caños</h3>
-        <p>Instalación y reparación profesional en hogares y empresas.</p>
-        <div class="read-more" onclick="openModal('banos')">Leer más</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_5.png" alt="Cámaras">
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_5.png" alt="Cámaras">
+          </div>
+          <h3>Cámara de Infrarrojos</h3>
+          <p>Detección precisa de fugas ocultas sin dañar tu propiedad.</p>
+          <div class="read-more" onclick="openModal('infrarrojos')">Leer más</div>
         </div>
-        <h3>Cámara de Infrarrojos</h3>
-        <p>Detección precisa de fugas ocultas sin dañar tu propiedad.</p>
-        <div class="read-more" onclick="openModal('infrarrojos')">Leer más</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_6.png" alt="Humedades">
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_6.png" alt="Humedades">
+          </div>
+          <h3>Causas de Humedad</h3>
+          <p>Diagnóstico y solución integral de humedades estructurales.</p>
+          <div class="read-more" onclick="openModal('humedad')">Leer más</div>
         </div>
-        <h3>Causas de Humedad</h3>
-        <p>Diagnóstico y solución integral de humedades estructurales.</p>
-        <div class="read-more" onclick="openModal('humedad')">Leer más</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_8.png" alt="Presión">
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_8.png" alt="Presión">
+          </div>
+          <h3>Poca Presión de Agua</h3>
+          <p>Análisis y reparación para recuperar el flujo óptimo.</p>
+          <div class="read-more" onclick="openModal('presion')">Leer más</div>
         </div>
-        <h3>Poca Presión de Agua</h3>
-        <p>Análisis y reparación para recuperar el flujo óptimo.</p>
-        <div class="read-more" onclick="openModal('presion')">Leer más</div>
       </div>
     </div>
   </section>
 
+  <!-- Sobre Nosotros -->
+  <section id="sobre-nosotros" style="background: rgba(10,10,18,0.3);">
+    <div class="section-container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <p class="hero-text" style="font-size: 1.2rem;">Más de 40 años de experiencia en la industria.</p>
+          <p>Al trabajar con nosotros, usted recibe el último conjunto de beneficios y algunas de las mejores características del mercado. Puede estar seguro de que tenemos la experiencia necesaria para ayudarle. Todo lo que tiene que hacer es ponerse en contacto con nuestro equipo y estaremos aquí para asistirle.</p>
+          <div style="margin-top: 2rem;">
+            <h3 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 1rem;">Llámenos</h3>
+            <p style="font-size: 1.2rem; font-weight: 600;">2682 6328 – <a href="tel:099240281" style="color: var(--text);">099 240 281</a></p>
+          </div>
+        </div>
+    </div>
+  </section>
+
   <!-- Proyectos -->
-  <section id="proyectos" style="background: rgba(10,10,18,0.3);">
-    <h2 class="section-title">Proyectos Destacados</h2>
-    <div class="projects">
-      <div class="project-card">
-        <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/bano-chile.jpg" alt="Baño Chile">
-        <div class="project-overlay">Baño moderno</div>
-      </div>
-      <div class="project-card">
-        <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/regadio2-1024x540-1.jpg" alt="Riego">
-        <div class="project-overlay">Sistema de riego</div>
-      </div>
-      <div class="project-card">
-        <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/nueva_343.jpg" alt="Termofusión">
-        <div class="project-overlay">Termofusión de cañerías</div>
-      </div>
-      <div class="project-card">
-        <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/maquina-de-geofono.jpg" alt="Geófono">
-        <div class="project-overlay">Detección con geófono</div>
-      </div>
+  <section id="proyectos">
+    <div class="section-container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="projects">
+          <div class="project-card">
+            <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/bano-chile.jpg" alt="Baño Chile">
+            <div class="project-overlay">Baño moderno</div>
+          </div>
+          <div class="project-card">
+            <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/regadio2-1024x540-1.jpg" alt="Riego">
+            <div class="project-overlay">Sistema de riego</div>
+          </div>
+          <div class="project-card">
+            <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/nueva_343.jpg" alt="Termofusión">
+            <div class="project-overlay">Termofusión de cañerías</div>
+          </div>
+          <div class="project-card">
+            <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/maquina-de-geofono.jpg" alt="Geófono">
+            <div class="project-overlay">Detección con geófono</div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" style="background: rgba(10,10,18,0.3);">
+    <div class="section-container">
+        <h2 class="section-title">Clientes Satisfechos</h2>
+        <div class="services">
+          <!-- Testimonio 1 -->
+          <div class="service-card" style="text-align: left;">
+            <p>"Lograron en muy poco tiempo un resultado óptimo sin romper el piso del baño y quedó todo ordenado y limpio. Pocas empresas se esmeran en dar un acabado final tan organizado."</p>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
+              <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/entrenadora.jpg" alt="Adriana Martínez" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <h4 style="margin: 0;">Adriana Martínez</h4>
+                <span style="opacity: 0.7;">Entrenadora de fitness</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonio 2 -->
+          <div class="service-card" style="text-align: left;">
+            <p>"Cuando comenzamos el nuevo desarrollo de la empresa, tuvimos que cambiar todos los sanitarios y vestidores. El cambio fue muy profesional."</p>
+             <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
+              <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/hija.jpeg" alt="Tiffany Machado" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <h4 style="margin: 0;">Tiffany Machado</h4>
+                <span style="opacity: 0.7;">Propietaria de Empresa</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonio 3 -->
+          <div class="service-card" style="text-align: left;">
+            <p>"Dentro del mercado donde manejamos productos naturales, necesitamos que la presión del agua sea constante y fuerte. Quedó muy bien el trabajo."</p>
+             <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
+              <img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cliente-el-mismo.jpeg" alt="Maximiliano Pereyra" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <h4 style="margin: 0;">Maximiliano Pereyra</h4>
+                <span style="opacity: 0.7;">Cliente</span>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </section>
 
   <!-- Contacto -->
   <section id="contacto">
-    <h2 class="section-title">Contáctenos</h2>
-    <div class="contact-info">
-      <div class="contact-item">
-        <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/envelop_icon.png" class="contact-icon" alt="Email">
-        <span>hmachado376@gmail.com</span>
-      </div>
-      <div class="contact-item">
-        <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/location_icon.png" class="contact-icon" alt="Ubicación">
-        <span>Las Heras 364 – Uruguay</span>
-      </div>
-      <div class="contact-item">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        <span><a href="https://wa.me/59899240281" style="color:var(--text); text-decoration: none;">099 240 281</a></span>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:2rem;">
-      <a href="https://wa.me/59899240281" class="btn">Solicitar presupuesto</a>
+    <div class="section-container">
+        <h2 class="section-title">Contáctenos</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/envelop_icon.png" class="contact-icon" alt="Email">
+            <span>hmachado376@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/location_icon.png" class="contact-icon" alt="Ubicación">
+            <span>Las Heras 364 – Uruguay</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span><a href="https://wa.me/59899240281" style="color:var(--text); text-decoration: none;">099 240 281</a></span>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:2rem;">
+          <a href="https://wa.me/59899240281" class="btn">Solicitar presupuesto</a>
+        </div>
     </div>
   </section>
 
