@@ -4,16 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Full Agua Service — Soluciones en Plomería</title>
+  <link rel="icon" href="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia-180x180.png" />
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #062A60;
-      --secondary: #EB7100;
+      --primary: #99a6b8;
+      --accent: #007BFF; 
+      --cta-orange: #EB7100;
       --accent-green: #00D084;
       --light-bg: #F4F7FF;
       --dark-bg: #0f0f15;
       --text-light: #FFFFFF;
-      --text-dark: #333333;
+      --text-dark: #000000;
       --glass-bg: rgba(255, 255, 255, 0.85);
       --glass-bg-dark: rgba(20, 20, 30, 0.75);
       --border-radius: 16px;
@@ -67,7 +72,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none; 
-      z-index: 1; 
+      z-index: -1; 
       overflow: hidden;
     }
 
@@ -78,6 +83,8 @@
       width: 50px; 
       height: 50px;
       animation: floatUp 10s linear;
+      /* MODIFICADO: Filtro CSS para cambiar el color de las imágenes a azul */
+      filter: sepia(1) hue-rotate(170deg) saturate(500%) brightness(0.8);
     }
 
     @keyframes floatUp {
@@ -106,9 +113,9 @@
       background: var(--glass);
       border-bottom: 1px solid var(--nav-border);
     }
-
+    
     .logo {
-      height: 70px;
+      height: 90px;
       transition: var(--transition);
     }
 
@@ -125,9 +132,9 @@
       font-size: 1.05rem;
       transition: var(--transition);
     }
-
+    
     .nav-links a:hover {
-      color: var(--secondary);
+      color: var(--accent);
     }
 
     .theme-toggle {
@@ -155,13 +162,43 @@
 
     /* Hero */
     header {
-      position: relative; /* Necesario para el overlay de la imagen */
-      padding: 140px 5% 80px;
+      position: relative;
+      padding: 180px 5% 120px;
       text-align: center;
-      max-width: 800px;
       margin: 0 auto;
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
       overflow: hidden;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        z-index: 0;
+    }
+
+    .hero-background::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
     }
 
     h1 {
@@ -179,25 +216,44 @@
 
     .btn {
       display: inline-block;
-      background: var(--secondary);
       color: white;
       padding: 14px 36px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
       transition: var(--transition);
-      border: 2px solid var(--secondary);
+    }
+    
+    .btn-cta {
+        background: var(--cta-orange);
+        border: 2px solid var(--cta-orange);
     }
 
-    .btn:hover {
-      background: transparent;
-      color: var(--secondary);
+    .btn-cta:hover {
+        background: transparent;
+        color: var(--cta-orange);
+    }
+    
+    .btn-secondary {
+        background: var(--accent);
+        border: 2px solid var(--accent);
+    }
+    
+    .btn-secondary:hover {
+        background: transparent;
+        color: var(--accent);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--secondary);
+      color: var(--accent);
+      border: 2px solid var(--accent);
       margin-left: 1rem;
+    }
+    
+    .btn-outline:hover {
+      background: var(--accent);
+      color: white;
     }
 
     /* Secciones */
@@ -222,9 +278,19 @@
       display: block;
       width: 70px;
       height: 4px;
-      background: var(--secondary);
+      background: var(--accent);
       margin: 0.8rem auto;
       border-radius: 2px;
+    }
+    
+    /* Feature Cards (Debajo del Hero) */
+    .feature-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: -80px;
+        position: relative;
+        z-index: 10;
     }
 
     /* Servicios */
@@ -246,7 +312,7 @@
 
     .service-card:hover {
       transform: translateY(-6px);
-      border-color: var(--secondary);
+      border-color: var(--accent);
     }
 
     .service-icon {
@@ -254,7 +320,7 @@
       height: 90px;
       margin: 0 auto 1.5rem;
       border-radius: 50%;
-      background: rgba(235, 113, 0, 0.1);
+      background: rgba(0, 123, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -274,7 +340,7 @@
     .read-more {
       margin-top: 1.2rem;
       display: inline-block;
-      color: var(--secondary);
+      color: var(--accent);
       font-weight: 600;
       cursor: pointer;
       text-decoration: underline;
@@ -350,6 +416,19 @@
       color: white;
       font-weight: 600;
     }
+    
+    /* Call to Action Section */
+    .cta-section {
+        background: var(--primary);
+        border-radius: var(--border-radius);
+        padding: 4rem;
+        text-align: center;
+    }
+    
+    .cta-section h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
 
     /* Contacto */
     .contact-info {
@@ -373,13 +452,88 @@
 
     /* Footer */
     footer {
+      background: var(--dark-bg);
       text-align: center;
-      padding: 2rem;
-      color: var(--text);
-      opacity: 0.8;
+      padding: 3rem 5%;
+      color: var(--text-light);
+      opacity: 0.9;
       font-size: 0.95rem;
       border-top: 1px solid var(--nav-border);
     }
+    
+    .footer-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-logo {
+        height: 80px;
+    }
+    
+    .footer-socials {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .footer-socials a {
+        color: var(--text-light);
+        font-size: 1.5rem;
+        transition: var(--transition);
+    }
+    
+    .footer-socials a:hover {
+        color: var(--accent);
+        transform: scale(1.1);
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+      font-size: 2rem;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    .floating-btn.whatsapp {
+      background-color: #25D366;
+    }
+
+    .floating-btn.facebook {
+      background-color: #1877F2;
+    }
+    
+    .floating-btn svg {
+        width: 32px;
+        height: 32px;
+        fill: white;
+    }
+
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -408,7 +562,7 @@
       }
 
       .logo {
-        height: 60px;
+        height: 75px;
       }
 
       .btn {
@@ -420,6 +574,16 @@
         margin-left: 0;
         margin-top: 1rem;
         display: inline-block;
+      }
+
+      .feature-cards {
+          margin-top: 0;
+          padding-top: 40px;
+      }
+      
+      header {
+          padding-top: 120px;
+          padding-bottom: 120px;
       }
     }
   </style>
@@ -450,15 +614,43 @@
   </nav>
 
   <!-- Hero -->
-  <!-- MODIFICADO: Se añadió un fondo de imagen al header -->
-  <header style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1598454449335-3dc9d3badb06?q=80&w=2070&auto=format&fit=crop'); /* <-- CAMBIA ESTA URL POR LA DE TU IMAGEN */
-                 background-size: cover; 
-                 background-position: center center;">
-    <h1>Detectamos pérdidas de agua invisibles</h1>
-    <p class="hero-text">Profesionales con tecnología de punta para resolver fugas, humedades, baja presión y más — sin romper paredes.</p>
-    <a href="https://wa.me/59899240281" class="btn">Presupuesto sin costo</a>
-    <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+  <header>
+    <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1598454449335-3dc9d3badb06?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="hero-content">
+        <h1>Detectamos pérdidas de agua invisibles</h1>
+        <p class="hero-text">Profesionales con tecnología de punta para resolver fugas, humedades, baja presión y más — sin romper paredes.</p>
+        <a href="https://wa.me/59899240281" class="btn btn-cta">Presupuesto sin costo</a>
+        <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+    </div>
   </header>
+
+  <!-- Feature Cards -->
+  <section style="padding-top: 0;">
+      <div class="section-container feature-cards">
+          <div class="service-card">
+              <div class="service-icon">
+                  <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_1.png" alt="Mantenimiento">
+              </div>
+              <h3>Mantenimiento General</h3>
+              <p>Equipos de última generación para detectar y solucionar cualquier problema de plomería.</p>
+          </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_2.png" alt="Emergencia">
+              </div>
+              <h3>Emergencias 24/7</h3>
+              <p>Atendemos urgencias fuera de hora para solucionar problemas de forma rápida y eficiente.</p>
+          </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <img src="https://fullaguaservice.uy/wp-content/themes/mighty-plumbers/assets/images/icon_3.png" alt="Equipos">
+              </div>
+              <h3>Equipos de Calidad</h3>
+              <p>Usamos materiales y equipos de alta calidad para garantizar un trabajo duradero y con garantía.</p>
+          </div>
+      </div>
+  </section>
+
 
   <!-- Servicios -->
   <section id="servicios">
@@ -509,7 +701,7 @@
           <p class="hero-text" style="font-size: 1.2rem;">Más de 40 años de experiencia en la industria.</p>
           <p>Al trabajar con nosotros, usted recibe el último conjunto de beneficios y algunas de las mejores características del mercado. Puede estar seguro de que tenemos la experiencia necesaria para ayudarle. Todo lo que tiene que hacer es ponerse en contacto con nuestro equipo y estaremos aquí para asistirle.</p>
           <div style="margin-top: 2rem;">
-            <h3 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 1rem;">Llámenos</h3>
+            <h3 style="color: var(--accent); font-size: 1.5rem; margin-bottom: 1rem;">Llámenos</h3>
             <p style="font-size: 1.2rem; font-weight: 600;">2682 6328 – <a href="tel:099240281" style="color: var(--text);">099 240 281</a></p>
           </div>
         </div>
@@ -540,13 +732,23 @@
         </div>
     </div>
   </section>
+  
+  <!-- Call to Action -->
+  <section id="cta">
+      <div class="section-container">
+          <div class="cta-section">
+              <h2>¿Necesita soluciones de plomería confiables?</h2>
+              <p class="hero-text" style="margin-bottom: 2rem;">Estamos aquí para ayudarle con cualquier problema, grande o pequeño.</p>
+              <a href="https://wa.me/59899240281" class="btn btn-cta">Pedir Presupuesto</a>
+          </div>
+      </div>
+  </section>
 
   <!-- Testimonios -->
   <section id="testimonios" style="background: rgba(10,10,18,0.3);">
     <div class="section-container">
         <h2 class="section-title">Clientes Satisfechos</h2>
         <div class="services">
-          <!-- Testimonio 1 -->
           <div class="service-card" style="text-align: left;">
             <p>"Lograron en muy poco tiempo un resultado óptimo sin romper el piso del baño y quedó todo ordenado y limpio. Pocas empresas se esmeran en dar un acabado final tan organizado."</p>
             <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
@@ -557,7 +759,6 @@
               </div>
             </div>
           </div>
-          <!-- Testimonio 2 -->
           <div class="service-card" style="text-align: left;">
             <p>"Cuando comenzamos el nuevo desarrollo de la empresa, tuvimos que cambiar todos los sanitarios y vestidores. El cambio fue muy profesional."</p>
              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
@@ -568,7 +769,6 @@
               </div>
             </div>
           </div>
-          <!-- Testimonio 3 -->
           <div class="service-card" style="text-align: left;">
             <p>"Dentro del mercado donde manejamos productos naturales, necesitamos que la presión del agua sea constante y fuerte. Quedó muy bien el trabajo."</p>
              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
@@ -602,15 +802,38 @@
           </div>
         </div>
         <div style="text-align:center; margin-top:2rem;">
-          <a href="https://wa.me/59899240281" class="btn">Solicitar presupuesto</a>
+          <a href="https://wa.me/59899240281" class="btn btn-cta">Solicitar presupuesto</a>
         </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Full Agua Service. Todos los derechos reservados.</p>
+    <div class="footer-content">
+        <a href="#"><img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia.png" alt="Full Agua Service" class="footer-logo"></a>
+        <p>Soluciones de plomería confiables y profesionales en Uruguay.</p>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
+            </a>
+            <a href="https://wa.me/59899240281" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
+            </a>
+        </div>
+        <p>&copy; 2025 Full Agua Service. Todos los derechos reservados.</p>
+    </div>
   </footer>
+
+  <!-- NUEVO: Botones Flotantes -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/share/1Ccj5wYhuK/" class="floating-btn facebook" target="_blank" aria-label="Ir a Facebook">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
+    </a>
+  </div>
+
 
   <!-- Modales de subpáginas -->
   <div class="modal" id="modal-banos">
