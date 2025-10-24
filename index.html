@@ -202,6 +202,33 @@
     .nav-links a:hover {
       color: var(--accent);
     }
+    
+    /* COMPARTIR HEADER - NUEVO ESTILO */
+    .share-buttons-header {
+      display: none; /* Ocultar por defecto para no saturar */
+      gap: 10px;
+      margin-right: 1.5rem;
+    }
+    .share-btn {
+      background: none;
+      border: 1px solid var(--text);
+      color: var(--text);
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .share-btn:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
+    }
+    .share-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+    }
+    /* FIN COMPARTIR HEADER */
 
     .theme-toggle {
       background: none;
@@ -543,12 +570,16 @@
         width: auto; /* Para mantener la proporción */
     }
     
+    /* COMPARTIR FOOTER - NUEVO ESTILO */
     .footer-socials {
         display: flex;
+        flex-wrap: wrap; /* Para responsive */
+        justify-content: center;
         gap: 1.5rem;
         margin-top: 1rem;
     }
-    
+    /* FIN COMPARTIR FOOTER */
+
     .footer-socials a {
         color: var(--text-light);
         font-size: 1.5rem;
@@ -619,6 +650,12 @@
 
 
     /* Responsive */
+    @media (min-width: 769px) {
+        .share-buttons-header {
+            display: flex; /* Mostrar en escritorio */
+        }
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
@@ -673,6 +710,11 @@
           width: 100px; /* Un poco más pequeño en móvil */
           height: 100px;
       }
+      
+      .share-buttons-header {
+        /* Ocultar en móvil para evitar sobrecargar el nav, ya que hay un CTA de WhatsApp flotante */
+        display: none; 
+      }
     }
   </style>
 </head>
@@ -683,7 +725,7 @@
 
   <!-- Navbar -->
   <nav>
-    <a href="#"><img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia.png" alt="Full Agua Service" class="logo" width="90" height="100"></a>
+    <a href="#"><img src="https://fullaguaservice.uy/wp-content/uploads/2025/04/cropped-logo-full-agua-service-copia.png" alt="Full Agua Service" class="logo" width="auto" height="90"></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
@@ -691,7 +733,22 @@
       <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    
     <div style="display:flex;align-items:center;">
+      <!-- NUEVOS BOTONES DE COMPARTIR EN HEADER -->
+      <div class="share-buttons-header">
+          <button class="share-btn" onclick="shareToWhatsApp()" aria-label="Compartir en WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
+          </button>
+          <button class="share-btn" onclick="shareToTelegram()" aria-label="Compartir en Telegram">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.318 8.441l-3.238 8.472c-.226.544-.842.753-1.343.498l-2.028-.971c-.08-.038-.168-.052-.25-.038l-4.22 1.34c-.38.12-.767-.09-.85-.472l1.676-7.854c.036-.166.12-.31.238-.428l7.087-6.703c.355-.33.916-.213 1.13.232.148.308.067.66-.217.89l-5.694 4.793 4.88 3.01c.21.13.486.07.643-.13.15-.2.15-.46.002-.66L15.3 11.2c.118-.118.203-.262.238-.428l1.676-7.854c.083-.382-.303-.592-.683-.472l-4.22 1.34c-.082.014-.17-.002-.25-.038l-2.028-.971c-.5-.255-1.117-.046-1.343.498L7.682 13.56c-.15.348-.06.744.238 1.01l4.88 3.01c.157.199.434.26.643.13l5.694-4.793c.284-.23.364-.582.217-.89z"/></svg>
+          </button>
+          <button class="share-btn" onclick="copyLink()" aria-label="Copiar Enlace del Sitio">
+              <svg viewBox="0 0 24 24"><path d="M16 1h-4C9.79 1 8 2.79 8 5v4c0 1.65 1.35 3 3 3h2c.55 0 1-.45 1-1V6c0-1.1-.9-2-2-2h-3C9.9 4 9 3.1 9 2h3c.55 0 1 .45 1 1v1c0 .55.45 1 1 1h2c1.65 0 3 1.35 3 3v4c0 1.65-1.35 3-3 3h-2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2c2.76 0 5-2.24 5-5v-4c0-2.76-2.24-5-5-5zM4 9h4c.55 0 1-.45 1-1V5c0-1.65-1.35-3-3-3h-2C2.24 2 0 4.24 0 7v4c0 2.76 2.24 5 5 5h4c1.65 0 3-1.35 3-3v-4c0-1.1-.9-2-2-2H5c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1H5c-1.65 0-3-1.35-3-3z"/></svg>
+          </button>
+      </div>
+      <!-- FIN NUEVOS BOTONES DE COMPARTIR EN HEADER -->
+      
       <button class="theme-toggle" id="themeToggle">☀️</button>
       <div class="menu-toggle" id="menuToggle">
         <span></span>
@@ -924,23 +981,33 @@
 
         <!-- AQUI VA EL QR CODE -->
         <div class="footer-qr-container">
+            <!-- RUTA CORREGIDA: fasqr.png -->
             <img src="fasqr.png" alt="Código QR para contactar a Full Agua Service por WhatsApp" width="120" height="120">
         </div>
         <!-- FIN AQUI VA EL QR CODE -->
 
         <div class="footer-socials">
+            <!-- BOTONES SOCIALES YA EXISTENTES -->
             <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" aria-label="Facebook">
                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
             </a>
             <a href="https://wa.me/59899240281" target="_blank" aria-label="WhatsApp">
                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
             </a>
+            <!-- NUEVOS BOTONES DE COMPARTIR EN FOOTER -->
+            <a href="#" onclick="shareToTelegram(); return false;" aria-label="Compartir en Telegram">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.318 8.441l-3.238 8.472c-.226.544-.842.753-1.343.498l-2.028-.971c-.08-.038-.168-.052-.25-.038l-4.22 1.34c-.38.12-.767-.09-.85-.472l1.676-7.854c.036-.166.12-.31.238-.428l7.087-6.703c.355-.33.916-.213 1.13.232.148.308.067.66-.217.89l-5.694 4.793 4.88 3.01c.21.13.486.07.643-.13.15-.2.15-.46.002-.66L15.3 11.2c.118-.118.203-.262.238-.428l1.676-7.854c.083-.382-.303-.592-.683-.472l-4.22 1.34c-.082.014-.17-.002-.25-.038l-2.028-.971c-.5-.255-1.117-.046-1.343.498L7.682 13.56c-.15.348-.06.744.238 1.01l4.88 3.01c.157.199.434.26.643.13l5.694-4.793c.284-.23.364-.582.217-.89z"/></svg>
+            </a>
+            <a href="#" onclick="copyLink(); return false;" aria-label="Copiar Enlace del Sitio">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16 1h-4C9.79 1 8 2.79 8 5v4c0 1.65 1.35 3 3 3h2c.55 0 1-.45 1-1V6c0-1.1-.9-2-2-2h-3C9.9 4 9 3.1 9 2h3c.55 0 1 .45 1 1v1c0 .55.45 1 1 1h2c1.65 0 3 1.35 3 3v4c0 1.65-1.35 3-3 3h-2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2c2.76 0 5-2.24 5-5v-4c0-2.76-2.24-5-5-5zM4 9h4c.55 0 1-.45 1-1V5c0-1.65-1.35-3-3-3h-2C2.24 2 0 4.24 0 7v4c0 2.76 2.24 5 5 5h4c1.65 0 3-1.35 3-3v-4c0-1.1-.9-2-2-2H5c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1H5c-1.65 0-3-1.35-3-3z"/></svg>
+            </a>
+            <!-- FIN NUEVOS BOTONES DE COMPARTIR EN FOOTER -->
         </div>
         <p>&copy; 2025 Full Agua Service. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- NUEVO: Botones Flotantes -->
+  <!-- NUEVO: Botones Flotantes (WhatsApp y Facebook) -->
   <div class="floating-buttons">
     <a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
       <svg viewBox="0 0 24 24"><path d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
@@ -1027,6 +1094,28 @@
   <script>
     // Variable para guardar el elemento que disparó el modal (Mejora A11y)
     let focusedElementBeforeModal = null; 
+    
+    // URL del sitio (simulada, debe ser la real del dominio)
+    const siteUrl = "https://fullaguaservice.uy/";
+    const shareText = "Full Agua Service - Especialistas en Detección de Fugas, Goteras y Plomería Urgente en Uruguay. ¡Recomendado! Visita: ";
+
+    // FUNCIONES DE COMPARTIR
+    function shareToWhatsApp() {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + siteUrl)}`, '_blank');
+    }
+
+    function shareToTelegram() {
+        window.open(`https://t.me/share/url?url=${encodeURIComponent(siteUrl)}&text=${encodeURIComponent(shareText)}`, '_blank');
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(siteUrl).then(() => {
+            alert("¡Enlace copiado al portapapeles!");
+        }).catch(err => {
+            console.error('Error al copiar el enlace: ', err);
+            alert("No se pudo copiar el enlace automáticamente. Por favor, cópialo manualmente: " + siteUrl);
+        });
+    }
 
     // Modo claro/oscuro
     const body = document.body;
