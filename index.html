@@ -533,16 +533,41 @@
       transition: var(--transition);
     }
 
-    .project-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.85));
-      padding: 1.4rem;
-      color: white;
-      font-weight: 600;
-    }
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 1.4rem;
+  color: white;
+  font-weight: 600;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+.project-card:hover .project-overlay {
+  transform: translateY(-10px);
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--border-radius);
+  padding: 2px;
+  background: linear-gradient(45deg, #007BFF, #00D084, #EB7100);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.project-card:hover::before {
+  opacity: 1;
+}
     
     /* Call to Action Section */
     .cta-section {
