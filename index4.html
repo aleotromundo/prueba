@@ -1,57 +1,45 @@
+--- START OF FILE index.html ---
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- SEO OPTIMIZACIÓN 1: TITLE MEJORADO -->
+  <!-- SEO OPTIMIZACIÓN 1: TITLE MEJORADO (Palabras Clave + Urgencia + Ubicación) -->
   <title>Detección de Fugas, Humedad, Goteras | Plomería Urgente 24hs en Uruguay | Full Agua</title>
-  <!-- SEO OPTIMIZACIÓN 2: META DESCRIPTION MEJORADA -->
+  
+  <!-- SEO OPTIMIZACIÓN 2: META DESCRIPTION MEJORADA (Más Palabras Clave y CTA) -->
   <meta name="description" content="Expertos 24hs en Detección de Fugas, Goteras, Humedades y baja presión en Uruguay. Plomería sin romper paredes con Infrarrojos y Geófonos. ¡Presupuesto sin costo!" />
-  <!-- SEO OPTIMIZACIÓN 3: CANONICAL TAG -->
+  
+  <!-- SEO OPTIMIZACIÓN 3: CANONICAL TAG - URL ACTUALIZADA -->
   <link rel="canonical" href="https://aleotromundo.github.io/prueba/" />
-  <!-- Robots Tag -->
+  
+  <!-- Robots Tag (implícito, pero se añade por buena práctica) -->
   <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aleotromundo.github.io/prueba/" />
-  <meta property="og:title" content="Detección de Fugas, Humedad, Goteras | Plomería Urgente 24hs en Uruguay | Full Agua" />
-  <meta property="og:description" content="Expertos 24hs en Detección de Fugas, Goteras, Humedades y baja presión en Uruguay. ¡Presupuesto sin costo!" />
-  <meta property="og:image" content="https://aleotromundo.github.io/prueba/favicon-192.png" />
-  <meta property="og:locale" content="es_UY" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://aleotromundo.github.io/prueba/" />
-  <meta name="twitter:title" content="Detección de Fugas, Humedad, Goteras | Plomería Urgente 24hs en Uruguay | Full Agua" />
-  <meta name="twitter:description" content="Expertos 24hs en Detección de Fugas, Goteras, Humedades y baja presión en Uruguay. ¡Presupuesto sin costo!" />
-  <meta name="twitter:image" content="https://aleotromundo.github.io/prueba/favicon-192.png" />
-
-  <!-- FAVICONS -->
+  
+  <!-- FAVICONS Y APP ICONS - RUTAS ACTUALIZADAS -->
   <link rel="icon" href="favicon-32.png" sizes="32x32" />
   <link rel="icon" href="favicon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
-  <!-- PRELOAD FUENTE CRÍTICA -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-
+  
   <!-- GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL68YY9XCX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+  
     gtag('config', 'G-JL68YY9XCX');
   </script>
-
-  <!-- SCHEMA MARKUP -->
+  <!-- FIN GOOGLE ANALYTICS -->
+  
+  <!-- SEO OPTIMIZACIÓN 4: SCHEMA MARKUP (JSON-LD) - URL ACTUALIZADA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Full Agua Service",
-    "image": "https://aleotromundo.github.io/prueba/favicon-192.png",
+    "image": "favicon-192.png",
     "@id": "https://aleotromundo.github.io/prueba/",
     "url": "https://aleotromundo.github.io/prueba/",
     "telephone": "+59899240281",
@@ -91,7 +79,9 @@
     }
   }
   </script>
+  <!-- FIN SCHEMA MARKUP -->
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #99a6b8;
@@ -108,6 +98,7 @@
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       --transition: all 0.3s ease;
     }
+
     .light-mode {
       --bg: var(--light-bg);
       --text: var(--text-dark);
@@ -115,6 +106,7 @@
       --glass: var(--glass-bg);
       --nav-border: rgba(0,0,0,0.1);
     }
+
     .dark-mode {
       --bg: var(--dark-bg);
       --text: var(--text-light);
@@ -122,14 +114,18 @@
       --glass: var(--glass-bg-dark);
       --nav-border: rgba(255,255,255,0.08);
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     html {
+      /* AGREGADO: Desplazamiento suave para anclajes (usabilidad) */
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
@@ -137,6 +133,7 @@
       line-height: 1.6;
       transition: var(--transition);
     }
+    /* ... (CSS para #tsparticles, #floating-tools-container, .floating-tool, @keyframes floatUp) ... */
     #tsparticles {
       position: fixed;
       top: 0;
@@ -145,6 +142,7 @@
       height: 100%;
       z-index: -1; 
     }
+
     #floating-tools-container {
       position: fixed;
       top: 0;
@@ -155,6 +153,7 @@
       z-index: -1; 
       overflow: hidden;
     }
+
     .floating-tool {
       position: absolute;
       bottom: -100px; 
@@ -162,7 +161,10 @@
       width: 50px; 
       height: 50px;
       animation: floatUp 10s linear;
+      /* ELIMINADO: Filtro CSS que cambiaba el color de las imágenes a azul, para mostrar el logo a color. */
+      /* filter: sepia(1) hue-rotate(170deg) saturate(500%) brightness(0.8); */
     }
+
     @keyframes floatUp {
       from {
         transform: translateY(0);
@@ -173,6 +175,8 @@
         opacity: 0;
       }
     }
+
+    /* Navbar */
     nav {
       position: fixed;
       top: 0;
@@ -187,15 +191,18 @@
       background: var(--glass);
       border-bottom: 1px solid var(--nav-border);
     }
+    
     .logo {
       height: 90px;
       transition: var(--transition);
     }
+
     .nav-links {
       display: flex;
       gap: 1.8rem;
       list-style: none;
     }
+
     .nav-links a {
       color: var(--text);
       text-decoration: none;
@@ -203,9 +210,12 @@
       font-size: 1.05rem;
       transition: var(--transition);
     }
+    
     .nav-links a:hover {
       color: var(--accent);
     }
+    
+    /* COMPARTIR HEADER - ESTILO MEJORADO */
     .share-buttons-header {
       display: none; 
       gap: 10px;
@@ -233,6 +243,8 @@
         height: 16px;
         fill: currentColor;
     }
+    /* FIN COMPARTIR HEADER */
+
     .theme-toggle {
       background: none;
       border: none;
@@ -241,11 +253,13 @@
       cursor: pointer;
       margin-left: 1.5rem;
     }
+
     .menu-toggle {
       display: none;
       flex-direction: column;
       cursor: pointer;
     }
+
     .menu-toggle span {
       width: 25px;
       height: 3px;
@@ -253,6 +267,8 @@
       margin: 3px 0;
       border-radius: 2px;
     }
+
+    /* Hero */
     header {
       position: relative;
       padding: 180px 5% 120px;
@@ -265,11 +281,13 @@
       justify-content: center;
       align-items: center;
     }
+    
     .hero-content {
         max-width: 800px;
         position: relative;
         z-index: 2;
     }
+
     .hero-background {
         position: absolute;
         top: 0;
@@ -280,6 +298,7 @@
         background-position: center center;
         z-index: 0;
     }
+
     .hero-background::after {
         content: '';
         position: absolute;
@@ -289,17 +308,20 @@
         height: 100%;
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
     }
+
     h1 {
       font-size: clamp(2.4rem, 6vw, 3.8rem);
       font-weight: 800;
       margin-bottom: 1.5rem;
       line-height: 1.2;
     }
+
     .hero-text {
       font-size: 1.15rem;
       opacity: 0.9;
       margin-bottom: 2rem;
     }
+
     .btn {
       display: inline-block;
       color: white;
@@ -309,45 +331,56 @@
       font-weight: 600;
       transition: var(--transition);
     }
+    
     .btn-cta {
         background: var(--cta-orange);
         border: 2px solid var(--cta-orange);
     }
+
     .btn-cta:hover {
         background: transparent;
         color: var(--cta-orange);
     }
+    
     .btn-secondary {
         background: var(--accent);
         border: 2px solid var(--accent);
     }
+    
     .btn-secondary:hover {
         background: transparent;
         color: var(--accent);
     }
+
     .btn-outline {
       background: transparent;
       color: var(--accent);
       border: 2px solid var(--accent);
       margin-left: 1rem;
     }
+    
     .btn-outline:hover {
       background: var(--accent);
       color: white;
     }
+
+    /* Secciones */
     section {
       padding: 80px 5%;
     }
+    
     .section-container {
         max-width: 1100px;
         margin: 0 auto;
     }
+
     .section-title {
       text-align: center;
       font-size: 2.3rem;
       margin-bottom: 3rem;
       position: relative;
     }
+
     .section-title::after {
       content: '';
       display: block;
@@ -357,6 +390,8 @@
       margin: 0.8rem auto;
       border-radius: 2px;
     }
+    
+    /* Feature Cards (Debajo del Hero) */
     .feature-cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -365,11 +400,14 @@
         position: relative;
         z-index: 10;
     }
+
+    /* Servicios */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2.2rem;
     }
+
     .service-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
@@ -379,10 +417,13 @@
       border: 1px solid rgba(255,255,255,0.08);
       transition: var(--transition);
     }
+
     .service-card:hover {
+      /* MODIFICADO: Añadido scale para mejor efecto de "elevación" */
       transform: translateY(-6px) scale(1.01); 
       border-color: var(--accent);
     }
+
     .service-icon {
       width: 90px;
       height: 90px;
@@ -393,15 +434,18 @@
       align-items: center;
       justify-content: center;
     }
+
     .service-icon img {
       width: 50px;
       height: 50px;
       object-fit: contain;
     }
+
     .service-card h3 {
       font-size: 1.45rem;
       margin-bottom: 1rem;
     }
+
     .read-more {
       margin-top: 1.2rem;
       display: inline-block;
@@ -410,6 +454,8 @@
       cursor: pointer;
       text-decoration: underline;
     }
+
+    /* Modal de subpágina */
     .modal {
       display: none;
       position: fixed;
@@ -423,6 +469,7 @@
       align-items: center;
       padding: 20px;
     }
+
     .modal-content {
       background: var(--card-bg);
       color: var(--text);
@@ -435,6 +482,7 @@
       max-height: 90vh;
       overflow-y: auto;
     }
+
     .close-modal {
       position: absolute;
       top: 1.2rem;
@@ -445,9 +493,11 @@
       color: var(--text);
       cursor: pointer;
     }
+
+    /* Video Embed Container para Responsiveness */
     .video-container {
         position: relative;
-        padding-bottom: 56.25%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
         height: 0;
         overflow: hidden;
         max-width: 100%;
@@ -461,68 +511,78 @@
         width: 100%;
         height: 100%;
     }
+
+    /* Proyectos */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.8rem;
     }
+
     .project-card {
       border-radius: var(--border-radius);
       overflow: hidden;
       height: 280px;
       position: relative;
     }
+
     .project-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: var(--transition);
     }
-    .project-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.85));
-      padding: 1.4rem;
-      color: white;
-      font-weight: 600;
-      transform: translateY(0);
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover .project-overlay {
-      transform: translateY(-10px);
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: var(--border-radius);
-      padding: 2px;
-      background: linear-gradient(45deg, #007BFF, #00D084, #EB7100);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .project-card:hover::before {
-      opacity: 1;
-    }
+
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 1.4rem;
+  color: white;
+  font-weight: 600;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+.project-card:hover .project-overlay {
+  transform: translateY(-10px);
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--border-radius);
+  padding: 2px;
+  background: linear-gradient(45deg, #007BFF, #00D084, #EB7100);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.project-card:hover::before {
+  opacity: 1;
+}
+    
+    /* Call to Action Section */
     .cta-section {
         background: var(--primary);
         border-radius: var(--border-radius);
         padding: 4rem;
         text-align: center;
     }
+    
     .cta-section h2 {
         font-size: clamp(1.8rem, 4vw, 2.5rem);
         margin-bottom: 1.5rem;
     }
+
+    /* Contacto */
     .contact-info {
       display: flex;
       flex-wrap: wrap;
@@ -530,25 +590,32 @@
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
+
     .contact-icon {
       width: 26px;
-      height: 26px;
+      height: 26px; /* AGREGADO para CLS */
       opacity: 0.9;
     }
-    footer {
-      background: #0f0f15;
-      color: #ffffff;
-      text-align: center;
-      padding: 3rem 5%;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      opacity: 1;
-    }
+
+    /* Footer */
+footer {
+  background: #0f0f15;
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 5%;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  opacity: 1;
+}
+.footer-socials a {
+  color: #ffffff;
+}    
     .footer-content {
         max-width: 1100px;
         margin: 0 auto;
@@ -557,32 +624,47 @@
         align-items: center;
         gap: 1.5rem;
     }
+    
     .footer-logo {
         height: 80px;
-        width: auto;
+        width: auto; /* Para mantener la proporción */
     }
+    
+    /* COMPARTIR FOOTER - NUEVO ESTILO */
     .footer-socials {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Para responsive */
         justify-content: center;
         gap: 1.5rem;
         margin-top: 1rem;
     }
+    /* FIN COMPARTIR FOOTER */
+
     .footer-socials a {
         color: var(--text-light);
         font-size: 1.5rem;
         transition: var(--transition);
     }
+    
     .footer-socials a:hover {
         color: var(--accent);
         transform: scale(1.1);
     }
+    
+    /* NUEVO ESTILO QR CODE */
+    .footer-qr-container {
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+
     .footer-qr-container img {
         width: 120px;
         height: 120px;
-        border: 4px solid var(--text-light);
+        border: 4px solid var(--text-light); /* Borde para resaltarlo */
         border-radius: 8px;
     }
+    /* FIN NUEVO ESTILO QR CODE */
+
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -592,6 +674,7 @@
       flex-direction: column;
       gap: 10px;
     }
+
     .floating-btn {
       width: 60px;
       height: 60px;
@@ -605,26 +688,34 @@
       text-decoration: none;
       font-size: 2rem;
     }
+
     .floating-btn:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     }
+
     .floating-btn.whatsapp {
       background-color: #25D366;
     }
+
     .floating-btn.facebook {
       background-color: #1877F2;
     }
+    
     .floating-btn svg {
         width: 32px;
         height: 32px;
         fill: white;
     }
+
+
+    /* Responsive */
     @media (min-width: 769px) {
         .share-buttons-header {
-            display: flex;
+            display: flex; /* Mostrar en escritorio */
         }
     }
+
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
@@ -641,54 +732,61 @@
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--nav-border);
       }
+
       .nav-links.active {
         left: 0;
       }
+
       .menu-toggle {
         display: flex;
       }
+
       .logo {
         height: 75px;
       }
+
       .btn {
         padding: 12px 28px;
         font-size: 1rem;
       }
+
       .btn-outline {
         margin-left: 0;
         margin-top: 1rem;
         display: inline-block;
       }
+
       .feature-cards {
           margin-top: 0;
           padding-top: 40px;
       }
+      
       header {
           padding-top: 120px;
           padding-bottom: 120px;
       }
+      
       .footer-qr-container img {
-          width: 100px;
+          width: 100px; /* Un poco más pequeño en móvil */
           height: 100px;
       }
+      
       .share-buttons-header {
+        /* Ocultar en móvil para evitar sobrecargar el nav, ya que hay un CTA de WhatsApp flotante */
         display: none; 
-      }
-
-      /* OPCIONAL: Desactivar animaciones en móvil para mejor rendimiento */
-      #tsparticles,
-      #floating-tools-container {
-        display: none;
       }
     }
   </style>
 </head>
 <body class="dark-mode">
+
   <div id="tsparticles"></div>
   <div id="floating-tools-container"></div>
 
+  <!-- Navbar -->
   <nav>
-    <a href="#"><img src="logo.png" alt="Full Agua Service" class="logo" width="90" height="90" loading="lazy"></a>
+    <!-- RUTA LOCAL DE IMAGEN -->
+    <a href="#"><img src="logo.png" alt="Full Agua Service" class="logo" width="90" height="90"></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
@@ -696,18 +794,23 @@
       <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    
     <div style="display:flex;align-items:center;">
-      <div class="share-buttons-header">
-        <button class="share-btn" onclick="shareToWhatsApp()" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-        <button class="share-btn" onclick="shareToFacebook()" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-        </button>
-        <button class="share-btn" onclick="copyLink()" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        </button>
-      </div>
+      <!-- NUEVOS BOTONES DE COMPARTIR EN HEADER -->
+<div class="share-buttons-header">
+  <button class="share-btn" onclick="shareToWhatsApp()" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+  <button class="share-btn" onclick="shareToFacebook()" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+  </button>
+  <button class="share-btn" onclick="copyLink()" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+  </button>
+</div>
+
+<!-- FIN NUEVOS BOTONES DE COMPARTIR EN HEADER -->
+      
       <button class="theme-toggle" id="themeToggle">☀️</button>
       <div class="menu-toggle" id="menuToggle">
         <span></span>
@@ -717,7 +820,9 @@
     </div>
   </nav>
 
+  <!-- AGREGADO: Etiqueta <main> para estructura semántica -->
   <main>
+    <!-- Hero -->
     <header>
       <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1598454449335-3dc9d3badb06?q=80&w=2070&auto=format&fit=crop');"></div>
       <div class="hero-content">
@@ -728,25 +833,29 @@
       </div>
     </header>
 
+    <!-- Feature Cards -->
     <section style="padding-top: 0;">
         <div class="section-container feature-cards">
             <div class="service-card">
                 <div class="service-icon">
-                    <img src="icon_1.png" alt="Mantenimiento" width="50" height="50" loading="lazy">
+                    <!-- RUTA LOCAL DE IMAGEN -->
+                    <img src="icon_1.png" alt="Mantenimiento" width="50" height="50">
                 </div>
                 <h3>Mantenimiento General</h3>
                 <p>Equipos de última generación para detectar y solucionar cualquier problema de plomería.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">
-                    <img src="icon_2.png" alt="Emergencia" width="50" height="50" loading="lazy">
+                    <!-- RUTA LOCAL DE IMAGEN -->
+                    <img src="icon_2.png" alt="Emergencia" width="50" height="50">
                 </div>
                 <h3>Emergencias 24/7</h3>
                 <p>Atendemos urgencias fuera de hora para solucionar problemas de forma rápida y eficiente.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">
-                    <img src="icon_3.png" alt="Equipos" width="50" height="50" loading="lazy">
+                    <!-- RUTA LOCAL DE IMAGEN -->
+                    <img src="icon_3.png" alt="Equipos" width="50" height="50">
                 </div>
                 <h3>Equipos de Calidad</h3>
                 <p>Usamos materiales y equipos de alta calidad para garantizar un trabajo duradero y con garantía.</p>
@@ -754,10 +863,12 @@
         </div>
     </section>
 
+    <!-- NUEVO VIDEO DE DEMOSTRACIÓN (ANTES DE SERVICIOS) -->
     <section id="video-demo">
         <div class="section-container" style="max-width: 800px;">
             <h2 class="section-title">Tecnología de Detección: Vea cómo lo hacemos</h2>
             <div class="video-container">
+                <!-- REEMPLAZAR EL SRC DEL IFRAME POR SU VIDEO DE GEÓFONO/CÁMARA -->
                 <iframe 
                     width="560" 
                     height="315" 
@@ -771,47 +882,59 @@
             <p style="text-align: center; margin-top: 1.5rem; font-style: italic; opacity: 0.8;">Utilizamos Geófonos y Cámaras Termográficas para encontrar la fuga con precisión milimétrica, ¡sin romper paredes ni pisos!</p>
         </div>
     </section>
+    <!-- FIN NUEVO VIDEO DE DEMOSTRACIÓN -->
 
+
+    <!-- Servicios -->
     <section id="servicios">
       <div class="section-container">
         <h2 class="section-title">Nuestros Servicios</h2>
         <div class="services">
           <div class="service-card">
             <div class="service-icon">
-              <img src="icon_4.png" alt="Baños" width="50" height="50" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="icon_4.png" alt="Baños" width="50" height="50">
             </div>
             <h3>Baños y Caños</h3>
             <p>Instalación y reparación profesional en hogares y empresas.</p>
+            <!-- MODIFICADO: Agregado 'this' para pasar la referencia del elemento (A11y) -->
             <div class="read-more" onclick="openModal('banos', this)">Leer más</div>
           </div>
           <div class="service-card">
             <div class="service-icon">
-              <img src="icon_5.png" alt="Cámaras" width="50" height="50" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="icon_5.png" alt="Cámaras" width="50" height="50">
             </div>
             <h3>Cámara de Infrarrojos</h3>
             <p>Detección precisa de fugas ocultas sin dañar tu propiedad.</p>
+            <!-- MODIFICADO: Agregado 'this' para pasar la referencia del elemento (A11y) -->
             <div class="read-more" onclick="openModal('infrarrojos', this)">Leer más</div>
           </div>
           <div class="service-card">
             <div class="service-icon">
-              <img src="icon_6.png" alt="Humedades" width="50" height="50" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="icon_6.png" alt="Humedades" width="50" height="50">
             </div>
             <h3>Causas de Humedad</h3>
             <p>Diagnóstico y solución integral de humedades estructurales.</p>
+            <!-- MODIFICADO: Agregado 'this' para pasar la referencia del elemento (A11y) -->
             <div class="read-more" onclick="openModal('humedad', this)">Leer más</div>
           </div>
           <div class="service-card">
             <div class="service-icon">
-              <img src="icon_8.png" alt="Presión" width="50" height="50" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="icon_8.png" alt="Presión" width="50" height="50">
             </div>
             <h3>Poca Presión de Agua</h3>
             <p>Análisis y reparación para recuperar el flujo óptimo.</p>
+            <!-- MODIFICADO: Agregado 'this' para pasar la referencia del elemento (A11y) -->
             <div class="read-more" onclick="openModal('presion', this)">Leer más</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Sobre Nosotros -->
     <section id="sobre-nosotros" style="background: rgba(10,10,18,0.3);">
       <div class="section-container">
           <h2 class="section-title">Sobre Nosotros</h2>
@@ -826,30 +949,36 @@
       </div>
     </section>
 
+    <!-- Proyectos -->
     <section id="proyectos">
       <div class="section-container">
           <h2 class="section-title">Proyectos Destacados</h2>
           <div class="projects">
             <div class="project-card">
-              <img src="bano-chile.jpg" alt="Baño moderno" width="280" height="280" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="bano-chile.jpg" alt="Baño moderno" width="280" height="280">
               <div class="project-overlay">Baño moderno</div>
             </div>
             <div class="project-card">
-              <img src="regadio2.jpg" alt="Sistema de riego" width="280" height="280" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="regadio2.jpg" alt="Sistema de riego" width="280" height="280">
               <div class="project-overlay">Sistema de riego</div>
             </div>
             <div class="project-card">
-              <img src="nueva_343.jpg" alt="Termofusión de cañerías" width="280" height="280" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="nueva_343.jpg" alt="Termofusión de cañerías" width="280" height="280">
               <div class="project-overlay">Termofusión de cañerías</div>
             </div>
             <div class="project-card">
-              <img src="maquina-de-geofono.jpg" alt="Detección con geófono" width="280" height="280" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="maquina-de-geofono.jpg" alt="Detección con geófono" width="280" height="280">
               <div class="project-overlay">Detección con geófono</div>
             </div>
           </div>
       </div>
     </section>
-
+    
+    <!-- Call to Action -->
     <section id="cta">
         <div class="section-container">
             <div class="cta-section">
@@ -860,6 +989,7 @@
         </div>
     </section>
 
+    <!-- Testimonios -->
     <section id="testimonios" style="background: rgba(10,10,18,0.3);">
       <div class="section-container">
           <h2 class="section-title">Clientes Satisfechos</h2>
@@ -867,7 +997,8 @@
             <div class="service-card" style="text-align: left;">
               <p>"Lograron en muy poco tiempo un resultado óptimo sin romper el piso del baño y quedó todo ordenado y limpio. Pocas empresas se esmeran en dar un acabado final tan organizado."</p>
               <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
-                <img src="entrenadora.jpg" alt="Adriana Martínez" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
+                <!-- RUTA LOCAL DE IMAGEN -->
+                <img src="entrenadora.jpg" alt="Adriana Martínez" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50">
                 <div>
                   <h4 style="margin: 0;">Adriana Martínez</h4>
                   <span style="opacity: 0.7;">Entrenadora de fitness</span>
@@ -877,7 +1008,8 @@
             <div class="service-card" style="text-align: left;">
               <p>"Cuando comenzamos el nuevo desarrollo de la empresa, tuvimos que cambiar todos los sanitarios y vestidores. El cambio fue muy profesional."</p>
               <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
-                <img src="hija.jpeg" alt="Tiffany Machado" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
+                <!-- RUTA LOCAL DE IMAGEN -->
+                <img src="hija.jpeg" alt="Tiffany Machado" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50">
                 <div>
                   <h4 style="margin: 0;">Tiffany Machado</h4>
                   <span style="opacity: 0.7;">Propietaria de Empresa</span>
@@ -887,7 +1019,8 @@
             <div class="service-card" style="text-align: left;">
               <p>"Dentro del mercado donde manejamos productos naturales, necesitamos que la presión del agua sea constante y fuerte. Quedó muy bien el trabajo."</p>
               <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
-                <img src="cliente-el-mismo.jpeg" alt="Maximiliano Pereyra" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
+                <!-- RUTA LOCAL DE IMAGEN -->
+                <img src="cliente-el-mismo.jpeg" alt="Maximiliano Pereyra" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50">
                 <div>
                   <h4 style="margin: 0;">Maximiliano Pereyra</h4>
                   <span style="opacity: 0.7;">Cliente</span>
@@ -898,16 +1031,20 @@
       </div>
     </section>
 
+    <!-- Contacto -->
     <section id="contacto">
       <div class="section-container">
           <h2 class="section-title">Contáctenos</h2>
+          <!-- MODIFICADO: Uso de la etiqueta <address> para información de contacto (Semántica) -->
           <address class="contact-info">
             <div class="contact-item">
-              <img src="envelop_icon.png" class="contact-icon" alt="Email" width="26" height="26" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="envelop_icon.png" class="contact-icon" alt="Email" width="26" height="26">
               <a href="mailto:hmachado376@gmail.com" style="color:var(--text); text-decoration: none;">hmachado376@gmail.com</a>
             </div>
             <div class="contact-item">
-              <img src="location_icon.png" class="contact-icon" alt="Ubicación" width="26" height="26" loading="lazy">
+              <!-- RUTA LOCAL DE IMAGEN -->
+              <img src="location_icon.png" class="contact-icon" alt="Ubicación" width="26" height="26">
               <span>Las Heras 364 – Uruguay</span>
             </div>
             <div class="contact-item">
@@ -922,56 +1059,71 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-        <a href="#"><img src="logo.png" alt="Full Agua Service" class="footer-logo" width="180" height="80" loading="lazy"></a>
+        <!-- RUTA LOCAL DE IMAGEN -->
+        <a href="#"><img src="logo.png" alt="Full Agua Service" class="footer-logo" width="180" height="80"></a>
         <p>Soluciones de plomería confiables y profesionales en Uruguay.</p>
+        <!-- MODIFICADO: Uso de <address> -->
         <address>
           <p>Las Heras 364 – Uruguay</p>
           <p>Teléfono: <a href="tel:+59899240281" style="color: inherit; text-decoration: none;">099 240 281</a></p>
         </address>
+
+        <!-- QR CODE -->
         <div class="footer-qr-container">
-            <img src="fasqr.png" alt="Código QR para contactar a Full Agua Service por WhatsApp" width="120" height="120" loading="lazy">
+            <!-- RUTA LOCAL DE IMAGEN -->
+            <img src="fasqr.png" alt="Código QR para contactar a Full Agua Service por WhatsApp" width="120" height="120">
         </div>
+        <!-- FIN QR CODE -->
+
         <div class="footer-socials">
+            <!-- BOTONES SOCIALES YA EXISTENTES -->
             <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" aria-label="Facebook" title="Visita nuestra página de Facebook">
                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
             </a>
             <a href="https://wa.me/59899240281" target="_blank" aria-label="WhatsApp" title="Enviar WhatsApp a Full Agua Service">
                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
             </a>
-            <a href="#" onclick="shareToWhatsApp(); return false;" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </a>
-            <a href="#" onclick="shareToFacebook(); return false;" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-            </a>
-            <a href="#" onclick="copyLink(); return false;" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-            </a>
+            <!-- NUEVOS BOTONES DE COMPARTIR EN FOOTER -->
+<a href="#" onclick="shareToWhatsApp(); return false;" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a href="#" onclick="shareToFacebook(); return false;" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+</a>
+<a href="#" onclick="copyLink(); return false;" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+</a>
+
+            <!-- FIN NUEVOS BOTONES DE COMPARTIR EN FOOTER -->
         </div>
         <p>&copy; 2025 Full Agua Service. Todos los derechos reservados.</p>
     </div>
   </footer>
 
+  <!-- NUEVO: Botones Flotantes (WhatsApp y Facebook) -->
   <div class="floating-buttons">
-    <a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp" title="WhatsApp Urgente 24hs">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-    </a>
+<a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp" title="WhatsApp Urgente 24hs">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
     <a href="https://www.facebook.com/share/1Ccj5wYhuK/" class="floating-btn facebook" target="_blank" aria-label="Ir a Facebook" title="Visita nuestra página de Facebook">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
     </a>
   </div>
 
-  <!-- Modales -->
+
+  <!-- Modales de subpáginas -->
   <div class="modal" id="modal-banos">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('banos')">&times;</button>
       <h2>Baños y Caños</h2>
       <p>Ofrecemos soluciones integrales para la instalación, renovación y reparación de baños en hogares y empresas. Trabajamos con materiales de primera calidad y garantizamos acabados impecables.</p>
-      <img src="bano-chile.jpg" alt="Baño" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450" loading="lazy">
+      <!-- RUTA LOCAL DE IMAGEN -->
+      <img src="bano-chile.jpg" alt="Baño" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450">
       <p>Nuestros servicios incluyen:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Reemplazo de sanitarios y griferías</li>
@@ -981,12 +1133,14 @@
       </ul>
     </div>
   </div>
+
   <div class="modal" id="modal-infrarrojos">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('infrarrojos')">&times;</button>
       <h2>Cámara de Infrarrojos</h2>
       <p>Utilizamos tecnología térmica avanzada para detectar fugas de agua ocultas en paredes, techos y pisos sin necesidad de perforar ni romper superficies.</p>
-      <img src="maquina-de-geofono.jpg" alt="Geófono" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450" loading="lazy">
+      <!-- RUTA LOCAL DE IMAGEN -->
+      <img src="maquina-de-geofono.jpg" alt="Geófono" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450">
       <p>Beneficios:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Diagnóstico preciso en minutos</li>
@@ -996,12 +1150,14 @@
       </ul>
     </div>
   </div>
+
   <div class="modal" id="modal-humedad">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('humedad')">&times;</button>
       <h2>Causas de Humedad</h2>
       <p>Identificamos el origen real de las humedades: filtraciones, condensación, capilaridad o fugas internas. No nos limitamos a pintar: resolvemos la raíz del problema.</p>
-      <img src="plomero.jpg" alt="Plomero" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450" loading="lazy">
+      <!-- RUTA LOCAL DE IMAGEN -->
+      <img src="plomero.jpg" alt="Plomero" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450">
       <p>Nuestro enfoque incluye:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Análisis con humedímetros profesionales</li>
@@ -1011,12 +1167,14 @@
       </ul>
     </div>
   </div>
+
   <div class="modal" id="modal-presion">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('presion')">&times;</button>
       <h2>Poca Presión de Agua</h2>
       <p>¿El agua sale débil en tu ducha o cocina? Diagnosticamos y solucionamos problemas en la red domiciliaria, válvulas, filtros o reguladores de presión.</p>
-      <img src="roseta-de-agua-ducha.jpg" alt="Ducha" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450" loading="lazy">
+      <!-- RUTA LOCAL DE IMAGEN -->
+      <img src="roseta-de-agua-ducha.jpg" alt="Ducha" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450">
       <p>Tratamos causas como:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Obstrucciones por sarro o sedimentos</li>
@@ -1027,18 +1185,29 @@
     </div>
   </div>
 
+  <!-- Scripts -->
+  <!-- MODIFICADO: Agregado 'defer' para optimizar la carga -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+
   <script>
+    // Variable para guardar el elemento que disparó el modal (Mejora A11y)
     let focusedElementBeforeModal = null; 
+    
+    // URL del sitio (simulada, debe ser la real del dominio)
+    // URL ACTUALIZADA A LA DE GITHUB
     const siteUrl = "https://aleotromundo.github.io/prueba/";
     const shareText = "Full Agua Service - Especialistas en Detección de Fugas, Goteras y Plomería Urgente en Uruguay. ¡Recomendado! Visita: ";
 
+    // FUNCIONES DE COMPARTIR
     function shareToWhatsApp() {
         window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + siteUrl)}`, '_blank');
     }
+
     function shareToFacebook() {
+        // Enlace de compartir de Facebook. Se usa "u" para la URL.
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}&quote=${encodeURIComponent(shareText)}`, '_blank');
     }
+
     function copyLink() {
         navigator.clipboard.writeText(siteUrl).then(() => {
             alert("¡Enlace copiado al portapapeles!");
@@ -1048,11 +1217,13 @@
         });
     }
 
+    // Modo claro/oscuro
     const body = document.body;
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark-mode';
     body.className = savedTheme;
     themeToggle.textContent = savedTheme === 'dark-mode' ? '☀️' : '🌙';
+
     themeToggle.addEventListener('click', () => {
       body.classList.toggle('light-mode');
       body.classList.toggle('dark-mode');
@@ -1061,12 +1232,14 @@
       themeToggle.textContent = isDark ? '☀️' : '🌙';
     });
 
+    // Menú móvil
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.querySelector('.nav-links');
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
+
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -1074,38 +1247,53 @@
       });
     });
 
+    // Modales (MODIFICADO para A11y: gestiona el foco y guarda el elemento disparador)
     function openModal(id, openerElement) {
       const modal = document.getElementById(`modal-${id}`);
-      focusedElementBeforeModal = openerElement;
+      focusedElementBeforeModal = openerElement; // Almacena el elemento que se hizo clic
+      
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
+      
+      // Mueve el foco al botón de cierre
       const closeModalButton = modal.querySelector('.close-modal');
-      if (closeModalButton) closeModalButton.focus();
+      if (closeModalButton) {
+          closeModalButton.focus();
+      }
     }
+
     function closeModal(id) {
       document.getElementById(`modal-${id}`).style.display = 'none';
       document.body.style.overflow = 'auto';
+
+      // Devuelve el foco al elemento que abrió el modal
       if (focusedElementBeforeModal) {
         focusedElementBeforeModal.focus();
-        focusedElementBeforeModal = null;
+        focusedElementBeforeModal = null; // Limpiar la referencia
       }
     }
+
     window.addEventListener('click', (e) => {
       if (e.target.classList.contains('modal')) {
         e.target.style.display = 'none';
         document.body.style.overflow = 'auto';
+        // Revertir foco si se cierra por clic en el fondo
         if (focusedElementBeforeModal) {
           focusedElementBeforeModal.focus();
           focusedElementBeforeModal = null; 
         }
       }
     });
+    
+    // AGREGADO: Cerrar modal con la tecla ESC (A11y/Usabilidad)
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         const activeModal = document.querySelector('.modal[style*="display: flex"]');
         if (activeModal) {
           activeModal.style.display = 'none';
           document.body.style.overflow = 'auto';
+          
+          // Devuelve el foco al elemento que abrió el modal
           if (focusedElementBeforeModal) {
             focusedElementBeforeModal.focus();
             focusedElementBeforeModal = null; 
@@ -1115,14 +1303,40 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Configuración de tsParticles
       tsParticles.load("tsparticles", {
         fpsLimit: 60,
         particles: {
-          number: { value: 40, density: { enable: true, value_area: 800 } },
-          color: { value: "#ffffff" },
-          shape: { type: "circle" },
-          opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-          size: { value: 3, random: true, anim: { enable: false } },
+          number: {
+            value: 40,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: "#ffffff"
+          },
+          shape: {
+            type: "circle"
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: false,
+            }
+          },
           move: {
             enable: true,
             speed: 1,
@@ -1136,33 +1350,48 @@
         interactivity: {
           detectsOn: "canvas",
           events: {
-            onHover: { enable: false },
-            onClick: { enable: false },
+            onHover: {
+              enable: false,
+            },
+            onClick: {
+              enable: false,
+            },
             resize: true
-          }
+            }
         },
         detectRetina: true
       });
 
       const toolContainer = document.getElementById('floating-tools-container');
-      const toolImages = ['favicon-192.png'];
+      // IMAGEN LOCAL
+      const toolImages = [
+        'favicon-192.png'
+      ];
+
       function createTool() {
         const tool = document.createElement('img');
         tool.className = 'floating-tool';
+        
         tool.src = toolImages[0];
-        tool.width = 50;
+        // AGREGADO: width y height para CLS
+        tool.width = 50; 
         tool.height = 50;
+        
         tool.style.left = Math.random() * 95 + 'vw';
-        tool.style.animationDuration = (Math.random() * 5 + 8) + 's';
-        toolContainer.appendChild(tool);
-        setTimeout(() => tool.remove(), 13000);
-      }
+        
+        tool.style.animationDuration = (Math.random() * 5 + 8) + 's'; 
 
-      // Solo activar animaciones en escritorio
-      if (window.innerWidth > 768) {
-        setInterval(createTool, 3000);
+        toolContainer.appendChild(tool);
+
+        setTimeout(() => {
+          tool.remove();
+        }, 13000);
       }
+      
+      // Nota: Considerar deshabilitar esta animación en móviles por rendimiento.
+      setInterval(createTool, 3000);
     });
+
   </script>
 </body>
 </html>
