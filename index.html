@@ -452,8 +452,8 @@
       justify-content: center;
     }
     .service-icon img {
-      width: 50px;
-      height: 50px;
+      width: 80px;
+      height: 80px;
       object-fit: contain;
     }
     .service-card h3 {
@@ -712,13 +712,6 @@
       background: #0056b3;
       color: white;
     }
-<!-- Modal Lightbox para imágenes de humedad -->
-<div id="lightbox-modal" class="modal" style="display: none; background: rgba(0,0,0,0.9); z-index: 3000;">
-  <div style="position: relative; width: 90vw; max-width: 900px; max-height: 90vh; margin: auto;">
-    <img id="lightbox-image" src="" alt="Imagen ampliada" style="width: 100%; height: auto; max-height: 85vh; object-fit: contain; border-radius: 8px;">
-    <button onclick="closeLightbox()" style="position: absolute; top: -40px; right: 0; background: white; color: black; width: 36px; height: 36px; border-radius: 50%; border: 2px solid white; font-size: 1.2rem; cursor: pointer;" aria-label="Cerrar">&times;</button>
-  </div>
-</div>
   </style>
 </head>
 <body class="dark-mode">
@@ -763,28 +756,28 @@
         <a href="#servicios" class="btn btn-outline">Ver servicios</a>
       </div>
     </header>
-    <section style="padding-top: 0;">
-      <div class="section-container feature-cards">
-<div class="service-card">
-  <h3 style="margin-bottom: 1rem;">Humedad</h3>
-  <div class="image-carousel-container" style="position: relative; border-radius: 12px; overflow: hidden; height: 220px; background: #000;">
-    <div class="image-carousel-track" style="display: flex; height: 100%; transition: transform 0.5s ease-in-out;"></div>
-    <button class="carousel-lightbox-trigger" style="position: absolute; inset: 0; background: transparent; border: none; cursor: zoom-in;" aria-label="Ampliar imagen"></button>
+<!-- Carrusel: Soluciones Profesionales -->
+<section id="carrusel-problemas">
+  <div class="section-container" style="max-width: 800px; margin-top: 2rem;">
+    <h2 class="section-title">Soluciones Profesionales 24/7</h2>
+    <div class="carousel-container">
+      <div class="carousel-track" id="problemsTrack"></div>
+      <button class="carousel-btn prev" id="prevProblemsBtn" aria-label="Anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="carousel-btn next" id="nextProblemsBtn" aria-label="Siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; font-style: italic; opacity: 0.8;">
+      Usamos equipos de última generación y garantizamos soluciones sin romper paredes ni pisos.
+    </p>
   </div>
-</div>
-        <div class="service-card">
-          <div class="service-icon"><img src="icon_2.png" alt="Emergencia" width="50" height="50" loading="lazy"></div>
-          <h3>Emergencias 24/7</h3>
-          <p>Atendemos urgencias fuera de hora para solucionar problemas de forma rápida y eficiente.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><img src="icon_3.png" alt="Equipos" width="50" height="50" loading="lazy"></div>
-          <h3>Equipos de Calidad</h3>
-          <p>Usamos materiales y equipos de alta calidad para garantizar un trabajo duradero y con garantía.</p>
-        </div>
-      </div>
-    </section>
-    <!-- CARRUSEL EN LUGAR DEL VIDEO -->
+</section>    <!-- CARRUSEL EN LUGAR DEL VIDEO -->
     <section id="galeria-demo">
       <div class="section-container" style="max-width: 800px;">
         <h2 class="section-title">Tecnología de Detección. Solución Total</h2>
@@ -979,7 +972,7 @@
       <button class="close-modal" onclick="closeModal('banos')">&times;</button>
       <h2>Baños y Caños</h2>
       <p>Ofrecemos soluciones integrales para la instalación, renovación y reparación de baños en hogares y empresas. Trabajamos con materiales de primera calidad y garantizamos acabados impecables.</p>
-      <img src="bano-chile.jpg" alt="Baño" style="width:100%; border-radius:12px; margin:1.5rem 0;" width="800" height="450" loading="lazy">
+      <img src="bano-chile.jpg" alt="Baño" style="width:80%; border-radius:12px; margin:1.5rem 0;" width="800" height="450" loading="lazy">
       <p>Nuestros servicios incluyen:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Reemplazo de sanitarios y griferías</li>
@@ -1236,72 +1229,59 @@
         setInterval(createTool, 3000);
       }
     });
-// === CARRUSEL DE HUMEDAD ===
+// === CARRUSEL DE PROBLEMAS (TODAS LAS TARJETAS EN IMÁGENES) ===
 document.addEventListener('DOMContentLoaded', () => {
-  const carouselTrack = document.querySelector('.image-carousel-track');
-  const lightboxTrigger = document.querySelector('.carousel-lightbox-trigger');
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImage = document.getElementById('lightbox-image');
+  const problemsTrack = document.getElementById('problemsTrack');
+  const prevProblemsBtn = document.getElementById('prevProblemsBtn');
+  const nextProblemsBtn = document.getElementById('nextProblemsBtn');
 
-  if (!carouselTrack) return;
+  if (!problemsTrack) return;
 
-  const totalImages = 5; // Cambia este número si tienes más o menos imágenes
-  const basePath = 'https://aleotromundo.github.io/prueba/img/humedad/humedad';
+  const totalProblems = 5; // 👈 AJUSTA ESTE NÚMERO SEGÚN CUÁNTAS IMÁGENES TENGAS
+  const basePath = 'img/problemas';
 
-  // Cargar imágenes
-  for (let i = 1; i <= totalImages; i++) {
+  for (let i = 1; i <= totalProblems; i++) {
     const img = document.createElement('img');
     img.src = `${basePath}${i}.png`;
-    img.alt = `humedad ${i}`;
-    img.style.minWidth = '100%';
-    img.style.height = '100%';
-    img.style.objectFit = 'cover';
+    img.alt = `Solución profesional ${i}`;
     img.loading = 'lazy';
-    carouselTrack.appendChild(img);
+    problemsTrack.appendChild(img);
   }
 
-  let currentIndex = 0;
-  function updateHumedadCarousel() {
-    const imgWidth = carouselTrack.clientWidth || 300;
-    carouselTrack.style.transform = `translateX(-${currentIndex * imgWidth}px)`;
+  let currentProblemIndex = 0;
+
+  function updateProblemsCarousel() {
+    const img = problemsTrack.querySelector('img');
+    if (!img) return;
+    const width = img.clientWidth || 800;
+    problemsTrack.style.transform = `translateX(-${currentProblemIndex * width}px)`;
   }
 
-  // Cambio automático
+  function syncProblemsWidth() {
+    problemsTrack.style.transition = 'none';
+    updateProblemsCarousel();
+    setTimeout(() => {
+      problemsTrack.style.transition = 'transform 0.5s ease-in-out';
+    }, 50);
+  }
+
+  window.addEventListener('resize', syncProblemsWidth);
+
+  prevProblemsBtn.addEventListener('click', () => {
+    currentProblemIndex = (currentProblemIndex > 0) ? currentProblemIndex - 1 : totalProblems - 1;
+    updateProblemsCarousel();
+  });
+
+  nextProblemsBtn.addEventListener('click', () => {
+    currentProblemIndex = (currentProblemIndex < totalProblems - 1) ? currentProblemIndex + 1 : 0;
+    updateProblemsCarousel();
+  });
+
+  // Auto-avance cada 4 segundos
   setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateHumedadCarousel();
-  }, 3000);
-
-  // Al hacer clic, abrir lightbox con la imagen actual
-  lightboxTrigger.addEventListener('click', () => {
-    const currentImg = carouselTrack.children[currentIndex];
-    if (currentImg) {
-      lightboxImage.src = currentImg.src;
-      lightboxImage.alt = currentImg.alt;
-      lightboxModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-  });
-
-  // Cerrar lightbox
-  window.closeLightbox = function() {
-    lightboxModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  };
-
-  // Cerrar al hacer clic fuera
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) {
-      closeLightbox();
-    }
-  });
-
-  // Soporte para tecla Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.style.display === 'flex') {
-      closeLightbox();
-    }
-  });
+    currentProblemIndex = (currentProblemIndex < totalProblems - 1) ? currentProblemIndex + 1 : 0;
+    updateProblemsCarousel();
+  }, 4000);
 });
   </script>
 </body>
