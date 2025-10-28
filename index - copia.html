@@ -712,13 +712,6 @@
       background: #0056b3;
       color: white;
     }
-<!-- Modal Lightbox para imágenes de humedad -->
-<div id="lightbox-modal" class="modal" style="display: none; background: rgba(0,0,0,0.9); z-index: 3000;">
-  <div style="position: relative; width: 90vw; max-width: 900px; max-height: 90vh; margin: auto;">
-    <img id="lightbox-image" src="" alt="Imagen ampliada" style="width: 100%; height: auto; max-height: 85vh; object-fit: contain; border-radius: 8px;">
-    <button onclick="closeLightbox()" style="position: absolute; top: -40px; right: 0; background: white; color: black; width: 36px; height: 36px; border-radius: 50%; border: 2px solid white; font-size: 1.2rem; cursor: pointer;" aria-label="Cerrar">&times;</button>
-  </div>
-</div>
   </style>
 </head>
 <body class="dark-mode">
@@ -765,13 +758,11 @@
     </header>
     <section style="padding-top: 0;">
       <div class="section-container feature-cards">
-<div class="service-card">
-  <h3 style="margin-bottom: 1rem;">Humedad</h3>
-  <div class="image-carousel-container" style="position: relative; border-radius: 12px; overflow: hidden; height: 220px; background: #000;">
-    <div class="image-carousel-track" style="display: flex; height: 100%; transition: transform 0.5s ease-in-out;"></div>
-    <button class="carousel-lightbox-trigger" style="position: absolute; inset: 0; background: transparent; border: none; cursor: zoom-in;" aria-label="Ampliar imagen"></button>
-  </div>
-</div>
+        <div class="service-card">
+          <div class="service-icon"><img src="icon_1.png" alt="Mantenimiento" width="50" height="50" loading="lazy"></div>
+          <h3>Mantenimiento General</h3>
+          <p>Equipos de última generación para detectar y solucionar cualquier problema de plomería.</p>
+        </div>
         <div class="service-card">
           <div class="service-icon"><img src="icon_2.png" alt="Emergencia" width="50" height="50" loading="lazy"></div>
           <h3>Emergencias 24/7</h3>
@@ -1236,73 +1227,6 @@
         setInterval(createTool, 3000);
       }
     });
-// === CARRUSEL DE HUMEDAD ===
-document.addEventListener('DOMContentLoaded', () => {
-  const carouselTrack = document.querySelector('.image-carousel-track');
-  const lightboxTrigger = document.querySelector('.carousel-lightbox-trigger');
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImage = document.getElementById('lightbox-image');
-
-  if (!carouselTrack) return;
-
-  const totalImages = 5; // Cambia este número si tienes más o menos imágenes
-  const basePath = 'https://aleotromundo.github.io/prueba/img/humedad/humedad';
-
-  // Cargar imágenes
-  for (let i = 1; i <= totalImages; i++) {
-    const img = document.createElement('img');
-    img.src = `${basePath}${i}.png`;
-    img.alt = `humedad ${i}`;
-    img.style.minWidth = '100%';
-    img.style.height = '100%';
-    img.style.objectFit = 'cover';
-    img.loading = 'lazy';
-    carouselTrack.appendChild(img);
-  }
-
-  let currentIndex = 0;
-  function updateHumedadCarousel() {
-    const imgWidth = carouselTrack.clientWidth || 300;
-    carouselTrack.style.transform = `translateX(-${currentIndex * imgWidth}px)`;
-  }
-
-  // Cambio automático
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateHumedadCarousel();
-  }, 3000);
-
-  // Al hacer clic, abrir lightbox con la imagen actual
-  lightboxTrigger.addEventListener('click', () => {
-    const currentImg = carouselTrack.children[currentIndex];
-    if (currentImg) {
-      lightboxImage.src = currentImg.src;
-      lightboxImage.alt = currentImg.alt;
-      lightboxModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-  });
-
-  // Cerrar lightbox
-  window.closeLightbox = function() {
-    lightboxModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  };
-
-  // Cerrar al hacer clic fuera
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) {
-      closeLightbox();
-    }
-  });
-
-  // Soporte para tecla Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.style.display === 'flex') {
-      closeLightbox();
-    }
-  });
-});
   </script>
 </body>
 </html>
