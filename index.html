@@ -3,40 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- SEO OPTIMIZACIÓN 1: TITLE MEJORADO -->
   <title>Detección de Fugas, Humedad, Goteras | Plomería Urgente 24hs en Uruguay | Full Agua</title>
-  <!-- SEO OPTIMIZACIÓN 2: META DESCRIPTION MEJORADA -->
   <meta name="description" content="Expertos 24hs en Detección de Fugas, Goteras, Humedades y baja presión en Uruguay. Plomería sin romper paredes con Infrarrojos y Geófonos. ¡Presupuesto sin costo!" />
-  <!-- SEO OPTIMIZACIÓN 3: CANONICAL TAG -->
   <link rel="canonical" href="https://aleotromundo.github.io/prueba/" />
-  <!-- Robots Tag -->
   <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aleotromundo.github.io/prueba/" />
   <meta property="og:title" content="Detección de Fugas, Humedad, Goteras | Plomería Urgente 24hs en Uruguay | Full Agua" />
   <meta property="og:description" content="Expertos 24hs en Detección de Fugas, Goteras, Humedades y baja presión en Uruguay. ¡Presupuesto sin costo!" />
   <meta property="og:image" content="https://aleotromundo.github.io/prueba/favicon-192.png" />
   <meta property="og:locale" content="es_UY" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://aleotromundo.github.io/prueba/" />
   <meta name="twitter:title" content="Detección de Fugas, Humedad, Goteras | Plomería Urgente 24hs en Uruguay | Full Agua" />
   <meta name="twitter:description" content="Expertos 24hs en Detección de Fugas, Goteras, Humedades y baja presión en Uruguay. ¡Presupuesto sin costo!" />
   <meta name="twitter:image" content="https://aleotromundo.github.io/prueba/favicon-192.png" />
-
-  <!-- FAVICONS -->
   <link rel="icon" href="favicon-32.png" sizes="32x32" />
   <link rel="icon" href="favicon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
-  <!-- PRELOAD FUENTE CRÍTICA -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-
-  <!-- GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL68YY9XCX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -44,8 +30,6 @@
     gtag('js', new Date());
     gtag('config', 'G-JL68YY9XCX');
   </script>
-
-  <!-- SCHEMA MARKUP -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,15 +56,7 @@
     "serviceType": "Plumber",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
       "opens": "00:00",
       "closes": "23:59"
     },
@@ -91,11 +67,10 @@
     }
   }
   </script>
-
   <style>
     :root {
       --primary: #99a6b8;
-      --accent: #007BFF; 
+      --accent: #007BFF;
       --cta-orange: #EB7100;
       --accent-green: #00D084;
       --light-bg: #F4F7FF;
@@ -143,7 +118,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; 
+      z-index: -1;
     }
     #floating-tools-container {
       position: fixed;
@@ -151,28 +126,83 @@
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none; 
-      z-index: -1; 
+      pointer-events: none;
+      z-index: -1;
       overflow: hidden;
     }
-.floating-tool {
-  position: absolute;
-  top: -100px;
-  opacity: 0;
-  width: 50px; 
-  height: 50px;
-  animation: floatDown 10s linear;
-}
-@keyframes floatDown {
-  from {
-    transform: translateY(0);
-    opacity: 0.7;
-  }
-  to {
-    transform: translateY(120vh);
-    opacity: 0;
-  }
-}
+    .floating-tool {
+      position: absolute;
+      top: -100px;
+      opacity: 0;
+      width: 50px;
+      height: 50px;
+      animation: floatDown 10s linear;
+    }
+    @keyframes floatDown {
+      from {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+      to {
+        transform: translateY(120vh);
+        opacity: 0;
+      }
+    }
+
+    /* === CARRUSEL === */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-track img {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .carousel-btn.prev { left: 16px; }
+    .carousel-btn.next { right: 16px; }
+    .light-mode .carousel-btn {
+      background: rgba(255, 255, 255, 0.5);
+      color: #000;
+    }
+    .light-mode .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* === Resto de estilos (sin cambios) === */
     nav {
       position: fixed;
       top: 0;
@@ -207,7 +237,7 @@
       color: var(--accent);
     }
     .share-buttons-header {
-      display: none; 
+      display: none;
       gap: 10px;
       margin-right: 1.5rem;
       border-right: 1px solid var(--nav-border);
@@ -223,15 +253,15 @@
       transition: var(--transition);
     }
     .share-btn:hover {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: white;
-        transform: translateY(-2px);
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      transform: translateY(-2px);
     }
     .share-btn svg {
-        width: 16px;
-        height: 16px;
-        fill: currentColor;
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
     }
     .theme-toggle {
       background: none;
@@ -266,28 +296,28 @@
       align-items: center;
     }
     .hero-content {
-        max-width: 800px;
-        position: relative;
-        z-index: 2;
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
     }
     .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-        z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      z-index: 0;
     }
     .hero-background::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
     }
     h1 {
       font-size: clamp(2.4rem, 6vw, 3.8rem);
@@ -310,20 +340,20 @@
       transition: var(--transition);
     }
     .btn-cta {
-        background: var(--cta-orange);
-        border: 2px solid var(--cta-orange);
+      background: var(--cta-orange);
+      border: 2px solid var(--cta-orange);
     }
     .btn-cta:hover {
-        background: transparent;
-        color: var(--cta-orange);
+      background: transparent;
+      color: var(--cta-orange);
     }
     .btn-secondary {
-        background: var(--accent);
-        border: 2px solid var(--accent);
+      background: var(--accent);
+      border: 2px solid var(--accent);
     }
     .btn-secondary:hover {
-        background: transparent;
-        color: var(--accent);
+      background: transparent;
+      color: var(--accent);
     }
     .btn-outline {
       background: transparent;
@@ -339,8 +369,8 @@
       padding: 80px 5%;
     }
     .section-container {
-        max-width: 1100px;
-        margin: 0 auto;
+      max-width: 1100px;
+      margin: 0 auto;
     }
     .section-title {
       text-align: center;
@@ -358,12 +388,12 @@
       border-radius: 2px;
     }
     .feature-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: -80px;
-        position: relative;
-        z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: -80px;
+      position: relative;
+      z-index: 10;
     }
     .services {
       display: grid;
@@ -380,7 +410,7 @@
       transition: var(--transition);
     }
     .service-card:hover {
-      transform: translateY(-6px) scale(1.01); 
+      transform: translateY(-6px) scale(1.01);
       border-color: var(--accent);
     }
     .service-icon {
@@ -445,22 +475,6 @@
       color: var(--text);
       cursor: pointer;
     }
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        margin-top: 2rem;
-        border-radius: var(--border-radius);
-    }
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -514,14 +528,14 @@
       opacity: 1;
     }
     .cta-section {
-        background: var(--primary);
-        border-radius: var(--border-radius);
-        padding: 4rem;
-        text-align: center;
+      background: var(--primary);
+      border-radius: var(--border-radius);
+      padding: 4rem;
+      text-align: center;
     }
     .cta-section h2 {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
-        margin-bottom: 1.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
     }
     .contact-info {
       display: flex;
@@ -547,41 +561,40 @@
       padding: 3rem 5%;
       font-size: 0.95rem;
       border-top: 1px solid rgba(255,255,255,0.1);
-      opacity: 1;
     }
     .footer-content {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
     .footer-logo {
-        height: 80px;
-        width: auto;
+      height: 80px;
+      width: auto;
     }
     .footer-socials {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
     .footer-socials a {
-        color: var(--text-light);
-        font-size: 1.5rem;
-        transition: var(--transition);
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: var(--transition);
     }
     .footer-socials a:hover {
-        color: var(--accent);
-        transform: scale(1.1);
+      color: var(--accent);
+      transform: scale(1.1);
     }
     .footer-qr-container img {
-        width: 120px;
-        height: 120px;
-        border: 4px solid var(--text-light);
-        border-radius: 8px;
+      width: 120px;
+      height: 120px;
+      border: 4px solid var(--text-light);
+      border-radius: 8px;
     }
     .floating-buttons {
       position: fixed;
@@ -616,14 +629,12 @@
       background-color: #1877F2;
     }
     .floating-btn svg {
-        width: 32px;
-        height: 32px;
-        fill: white;
+      width: 32px;
+      height: 32px;
+      fill: white;
     }
     @media (min-width: 769px) {
-        .share-buttons-header {
-            display: flex;
-        }
+      .share-buttons-header { display: flex; }
     }
     @media (max-width: 768px) {
       .nav-links {
@@ -641,61 +652,30 @@
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--nav-border);
       }
-      .nav-links.active {
-        left: 0;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-      .logo {
-        height: 75px;
-      }
-      .btn {
-        padding: 12px 28px;
-        font-size: 1rem;
-      }
-      .btn-outline {
-        margin-left: 0;
-        margin-top: 1rem;
-        display: inline-block;
-      }
-      .feature-cards {
-          margin-top: 0;
-          padding-top: 40px;
-      }
-      header {
-          padding-top: 120px;
-          padding-bottom: 120px;
-      }
-      .footer-qr-container img {
-          width: 100px;
-          height: 100px;
-      }
-      .share-buttons-header {
-        display: none; 
-      }
-
-      /* OPCIONAL: Desactivar animaciones en móvil para mejor rendimiento */
-      #tsparticles,
-      #floating-tools-container {
-        display: none;
-      }
+      .nav-links.active { left: 0; }
+      .menu-toggle { display: flex; }
+      .logo { height: 75px; }
+      .btn { padding: 12px 28px; font-size: 1rem; }
+      .btn-outline { margin-left: 0; margin-top: 1rem; display: inline-block; }
+      .feature-cards { margin-top: 0; padding-top: 40px; }
+      header { padding-top: 120px; padding-bottom: 120px; }
+      .footer-qr-container img { width: 100px; height: 100px; }
+      .share-buttons-header { display: none; }
+      #tsparticles, #floating-tools-container { display: none; }
     }
-.light-mode .btn-outline {
-  color: #ffb300; /* azul más oscuro para mejor contraste */
-  border-color: #ffbb00;
-}
-.light-mode .btn-outline:hover {
-  background: #0056b3;
-  color: white;
-}
-
+    .light-mode .btn-outline {
+      color: #ffb300;
+      border-color: #ffbb00;
+    }
+    .light-mode .btn-outline:hover {
+      background: #0056b3;
+      color: white;
+    }
   </style>
 </head>
 <body class="dark-mode">
   <div id="tsparticles"></div>
   <div id="floating-tools-container"></div>
-
   <nav>
     <a href="#"><img src="logo.png" alt="Full Agua Service" class="logo" width="90" height="90" loading="lazy"></a>
     <ul class="nav-links">
@@ -725,60 +705,57 @@
       </div>
     </div>
   </nav>
-
   <main>
     <header>
       <div class="hero-background" style="background-image: url('https://github.com/aleotromundo/prueba/blob/main/img/ejemplo.jpeg');"></div>
       <div class="hero-content">
-          <h1>Detectamos pérdidas de agua invisibles</h1>
-          <p class="hero-text">Profesionales con tecnología de punta para resolver fugas, humedades, baja presión y más — sin romper paredes.</p>
-          <a href="https://wa.me/59899240281" class="btn btn-cta">Presupuesto sin costo</a>
-          <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+        <h1>Detectamos pérdidas de agua invisibles</h1>
+        <p class="hero-text">Profesionales con tecnología de punta para resolver fugas, humedades, baja presión y más — sin romper paredes.</p>
+        <a href="https://wa.me/59899240281" class="btn btn-cta">Presupuesto sin costo</a>
+        <a href="#servicios" class="btn btn-outline">Ver servicios</a>
       </div>
     </header>
-
     <section style="padding-top: 0;">
-        <div class="section-container feature-cards">
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="icon_1.png" alt="Mantenimiento" width="50" height="50" loading="lazy">
-                </div>
-                <h3>Mantenimiento General</h3>
-                <p>Equipos de última generación para detectar y solucionar cualquier problema de plomería.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="icon_2.png" alt="Emergencia" width="50" height="50" loading="lazy">
-                </div>
-                <h3>Emergencias 24/7</h3>
-                <p>Atendemos urgencias fuera de hora para solucionar problemas de forma rápida y eficiente.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="icon_3.png" alt="Equipos" width="50" height="50" loading="lazy">
-                </div>
-                <h3>Equipos de Calidad</h3>
-                <p>Usamos materiales y equipos de alta calidad para garantizar un trabajo duradero y con garantía.</p>
-            </div>
+      <div class="section-container feature-cards">
+        <div class="service-card">
+          <div class="service-icon"><img src="icon_1.png" alt="Mantenimiento" width="50" height="50" loading="lazy"></div>
+          <h3>Mantenimiento General</h3>
+          <p>Equipos de última generación para detectar y solucionar cualquier problema de plomería.</p>
         </div>
+        <div class="service-card">
+          <div class="service-icon"><img src="icon_2.png" alt="Emergencia" width="50" height="50" loading="lazy"></div>
+          <h3>Emergencias 24/7</h3>
+          <p>Atendemos urgencias fuera de hora para solucionar problemas de forma rápida y eficiente.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><img src="icon_3.png" alt="Equipos" width="50" height="50" loading="lazy"></div>
+          <h3>Equipos de Calidad</h3>
+          <p>Usamos materiales y equipos de alta calidad para garantizar un trabajo duradero y con garantía.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="video-demo">
-        <div class="section-container" style="max-width: 800px;">
-            <h2 class="section-title">Tecnología de Detección: Vea cómo lo hacemos</h2>
-            <div class="video-container">
-                <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/prGnIeEb_PI?rel=0" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p style="text-align: center; margin-top: 1.5rem; font-style: italic; opacity: 0.8;">Utilizamos Geófonos y Cámaras Termográficas para encontrar la fuga con precisión milimétrica, ¡sin romper paredes ni pisos!</p>
+    <!-- CARRUSEL EN LUGAR DEL VIDEO -->
+    <section id="galeria-demo">
+      <div class="section-container" style="max-width: 800px;">
+        <h2 class="section-title">Tecnología de Detección: Vea cómo lo hacemos</h2>
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack"></div>
+          <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
+        <p style="text-align: center; margin-top: 1.5rem; font-style: italic; opacity: 0.8;">
+          Utilizamos Geófonos y Cámaras Termográficas para encontrar la fuga con precisión milimétrica, ¡sin romper paredes ni pisos!
+        </p>
+      </div>
     </section>
 
     <section id="servicios">
@@ -786,33 +763,25 @@
         <h2 class="section-title">Nuestros Servicios</h2>
         <div class="services">
           <div class="service-card">
-            <div class="service-icon">
-              <img src="icon_4.png" alt="Baños" width="50" height="50" loading="lazy">
-            </div>
+            <div class="service-icon"><img src="icon_4.png" alt="Baños" width="50" height="50" loading="lazy"></div>
             <h3>Baños y Caños</h3>
             <p>Instalación y reparación profesional en hogares y empresas.</p>
             <div class="read-more" onclick="openModal('banos', this)">Leer más</div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <img src="icon_5.png" alt="Cámaras" width="50" height="50" loading="lazy">
-            </div>
+            <div class="service-icon"><img src="icon_5.png" alt="Cámaras" width="50" height="50" loading="lazy"></div>
             <h3>Cámara de Infrarrojos</h3>
             <p>Detección precisa de fugas ocultas sin dañar tu propiedad.</p>
             <div class="read-more" onclick="openModal('infrarrojos', this)">Leer más</div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <img src="icon_6.png" alt="Humedades" width="50" height="50" loading="lazy">
-            </div>
+            <div class="service-icon"><img src="icon_6.png" alt="Humedades" width="50" height="50" loading="lazy"></div>
             <h3>Causas de Humedad</h3>
             <p>Diagnóstico y solución integral de humedades estructurales.</p>
             <div class="read-more" onclick="openModal('humedad', this)">Leer más</div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <img src="icon_8.png" alt="Presión" width="50" height="50" loading="lazy">
-            </div>
+            <div class="service-icon"><img src="icon_8.png" alt="Presión" width="50" height="50" loading="lazy"></div>
             <h3>Poca Presión de Agua</h3>
             <p>Análisis y reparación para recuperar el flujo óptimo.</p>
             <div class="read-more" onclick="openModal('presion', this)">Leer más</div>
@@ -820,160 +789,139 @@
         </div>
       </div>
     </section>
-
     <section id="sobre-nosotros" style="background: rgba(10,10,18,0.3);">
       <div class="section-container">
-          <h2 class="section-title">Sobre Nosotros</h2>
-          <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p class="hero-text" style="font-size: 1.2rem;">Más de 40 años de experiencia en la industria.</p>
-            <p>Al trabajar con nosotros, usted recibe el último conjunto de beneficios y algunas de las mejores características del mercado. Puede estar seguro de que tenemos la experiencia necesaria para ayudarle. Todo lo que tiene que hacer es ponerse en contacto con nuestro equipo y estaremos aquí para asistirle.</p>
-            <div style="margin-top: 2rem;">
-              <h3 style="color: var(--accent); font-size: 1.5rem; margin-bottom: 1rem;">Llámenos</h3>
-              <p style="font-size: 1.2rem; font-weight: 600;">2682 6328 – <a href="tel:+59899240281" style="color: var(--text);">099 240 281</a></p>
-            </div>
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <p class="hero-text" style="font-size: 1.2rem;">Más de 40 años de experiencia en la industria.</p>
+          <p>Al trabajar con nosotros, usted recibe el último conjunto de beneficios y algunas de las mejores características del mercado. Puede estar seguro de que tenemos la experiencia necesaria para ayudarle. Todo lo que tiene que hacer es ponerse en contacto con nuestro equipo y estaremos aquí para asistirle.</p>
+          <div style="margin-top: 2rem;">
+            <h3 style="color: var(--accent); font-size: 1.5rem; margin-bottom: 1rem;">Llámenos</h3>
+            <p style="font-size: 1.2rem; font-weight: 600;">2682 6328 – <a href="tel:+59899240281" style="color: var(--text);">099 240 281</a></p>
           </div>
+        </div>
       </div>
     </section>
-
     <section id="proyectos">
       <div class="section-container">
-          <h2 class="section-title">Proyectos Destacados</h2>
-          <div class="projects">
-            <div class="project-card">
-              <img src="bano-chile.jpg" alt="Baño moderno" width="280" height="280" loading="lazy">
-              <div class="project-overlay">Baño moderno</div>
-            </div>
-            <div class="project-card">
-              <img src="regadio2.jpg" alt="Sistema de riego" width="280" height="280" loading="lazy">
-              <div class="project-overlay">Sistema de riego</div>
-            </div>
-            <div class="project-card">
-              <img src="nueva_343.jpg" alt="Termofusión de cañerías" width="280" height="280" loading="lazy">
-              <div class="project-overlay">Termofusión de cañerías</div>
-            </div>
-            <div class="project-card">
-              <img src="maquina-de-geofono.jpg" alt="Detección con geófono" width="280" height="280" loading="lazy">
-              <div class="project-overlay">Detección con geófono</div>
-            </div>
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="projects">
+          <div class="project-card">
+            <img src="bano-chile.jpg" alt="Baño moderno" width="280" height="280" loading="lazy">
+            <div class="project-overlay">Baño moderno</div>
           </div>
+          <div class="project-card">
+            <img src="regadio2.jpg" alt="Sistema de riego" width="280" height="280" loading="lazy">
+            <div class="project-overlay">Sistema de riego</div>
+          </div>
+          <div class="project-card">
+            <img src="nueva_343.jpg" alt="Termofusión de cañerías" width="280" height="280" loading="lazy">
+            <div class="project-overlay">Termofusión de cañerías</div>
+          </div>
+          <div class="project-card">
+            <img src="maquina-de-geofono.jpg" alt="Detección con geófono" width="280" height="280" loading="lazy">
+            <div class="project-overlay">Detección con geófono</div>
+          </div>
+        </div>
       </div>
     </section>
-
     <section id="cta">
-        <div class="section-container">
-            <div class="cta-section">
-                <h2>¿Necesita soluciones de plomería confiables?</h2>
-                <p class="hero-text" style="margin-bottom: 2rem;">Estamos aquí para ayudarle con cualquier problema, grande o pequeño.</p>
-                <a href="https://wa.me/59899240281" class="btn btn-cta">Pedir Presupuesto</a>
-            </div>
+      <div class="section-container">
+        <div class="cta-section">
+          <h2>¿Necesita soluciones de plomería confiables?</h2>
+          <p class="hero-text" style="margin-bottom: 2rem;">Estamos aquí para ayudarle con cualquier problema, grande o pequeño.</p>
+          <a href="https://wa.me/59899240281" class="btn btn-cta">Pedir Presupuesto</a>
         </div>
+      </div>
     </section>
-
     <section id="testimonios" style="background: rgba(10,10,18,0.3);">
       <div class="section-container">
-          <h2 class="section-title">Clientes Satisfechos</h2>
-          <div class="services">
-            <div class="service-card" style="text-align: left;">
-              <p>"Lograron en muy poco tiempo un resultado óptimo sin romper el piso del baño y quedó todo ordenado y limpio. Pocas empresas se esmeran en dar un acabado final tan organizado."</p>
-              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
-                <img src="entrenadora.jpg" alt="Adriana Martínez" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
-                <div>
-                  <h4 style="margin: 0;">Adriana Martínez</h4>
-                  <span style="opacity: 0.7;">Entrenadora de fitness</span>
-                </div>
-              </div>
-            </div>
-            <div class="service-card" style="text-align: left;">
-              <p>"Cuando comenzamos el nuevo desarrollo de la empresa, tuvimos que cambiar todos los sanitarios y vestidores. El cambio fue muy profesional."</p>
-              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
-                <img src="hija.jpeg" alt="Tiffany Machado" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
-                <div>
-                  <h4 style="margin: 0;">Tiffany Machado</h4>
-                  <span style="opacity: 0.7;">Propietaria de Empresa</span>
-                </div>
-              </div>
-            </div>
-            <div class="service-card" style="text-align: left;">
-              <p>"Dentro del mercado donde manejamos productos naturales, necesitamos que la presión del agua sea constante y fuerte. Quedó muy bien el trabajo."</p>
-              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
-                <img src="cliente-el-mismo.jpeg" alt="Maximiliano Pereyra" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
-                <div>
-                  <h4 style="margin: 0;">Maximiliano Pereyra</h4>
-                  <span style="opacity: 0.7;">Cliente</span>
-                </div>
-              </div>
+        <h2 class="section-title">Clientes Satisfechos</h2>
+        <div class="services">
+          <div class="service-card" style="text-align: left;">
+            <p>"Lograron en muy poco tiempo un resultado óptimo sin romper el piso del baño y quedó todo ordenado y limpio. Pocas empresas se esmeran en dar un acabado final tan organizado."</p>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
+              <img src="entrenadora.jpg" alt="Adriana Martínez" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
+              <div><h4 style="margin: 0;">Adriana Martínez</h4><span style="opacity: 0.7;">Entrenadora de fitness</span></div>
             </div>
           </div>
+          <div class="service-card" style="text-align: left;">
+            <p>"Cuando comenzamos el nuevo desarrollo de la empresa, tuvimos que cambiar todos los sanitarios y vestidores. El cambio fue muy profesional."</p>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
+              <img src="hija.jpeg" alt="Tiffany Machado" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
+              <div><h4 style="margin: 0;">Tiffany Machado</h4><span style="opacity: 0.7;">Propietaria de Empresa</span></div>
+            </div>
+          </div>
+          <div class="service-card" style="text-align: left;">
+            <p>"Dentro del mercado donde manejamos productos naturales, necesitamos que la presión del agua sea constante y fuerte. Quedó muy bien el trabajo."</p>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--nav-border); padding-top: 1rem;">
+              <img src="cliente-el-mismo.jpeg" alt="Maximiliano Pereyra" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" width="50" height="50" loading="lazy">
+              <div><h4 style="margin: 0;">Maximiliano Pereyra</h4><span style="opacity: 0.7;">Cliente</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
     <section id="contacto">
       <div class="section-container">
-          <h2 class="section-title">Contáctenos</h2>
-<address class="contact-info">
-  <div class="contact-item">
-    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-    </svg>
-    <a href="mailto:hmachado376@gmail.com" style="color:var(--text); text-decoration: none;">hmachado376@gmail.com</a>
-  </div>
-  <div class="contact-item">
-    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-    </svg>
-    <span>Las Heras 364 – Uruguay</span>
-  </div>
-  <div class="contact-item">
-    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    <span><a href="https://wa.me/59899240281" style="color:var(--text); text-decoration: none;">099 240 281</a></span>
-  </div>
-</address>          <div style="text-align:center; margin-top:2rem;">
-            <a href="https://wa.me/59899240281" class="btn btn-cta">Solicitar presupuesto</a>
+        <h2 class="section-title">Contáctenos</h2>
+        <address class="contact-info">
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:hmachado376@gmail.com" style="color:var(--text); text-decoration: none;">hmachado376@gmail.com</a>
           </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Las Heras 364 – Uruguay</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span><a href="https://wa.me/59899240281" style="color:var(--text); text-decoration: none;">099 240 281</a></span>
+          </div>
+        </address>
+        <div style="text-align:center; margin-top:2rem;">
+          <a href="https://wa.me/59899240281" class="btn btn-cta">Solicitar presupuesto</a>
+        </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="footer-content">
-        <a href="#"><img src="logo.png" alt="Full Agua Service" class="footer-logo" width="180" height="80" loading="lazy"></a>
-        <p>Soluciones de plomería confiables y profesionales en Uruguay.</p>
-        <address>
-          <p>Las Heras 364 – Uruguay</p>
-          <p>Teléfono: <a href="tel:+59899240281" style="color: inherit; text-decoration: none;">099 240 281</a></p>
-        </address>
-        <div class="footer-qr-container">
-            <img src="fasqr.png" alt="Código QR para contactar a Full Agua Service por WhatsApp" width="120" height="120" loading="lazy">
-        </div>
-        <div class="footer-socials">
-            <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" aria-label="Facebook" title="Visita nuestra página de Facebook">
-                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
-            </a>
-            <a href="https://wa.me/59899240281" target="_blank" aria-label="WhatsApp" title="Enviar WhatsApp a Full Agua Service">
-                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
-            </a>
-            <a href="#" onclick="shareToWhatsApp(); return false;" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </a>
-            <a href="#" onclick="shareToFacebook(); return false;" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-            </a>
-            <a href="#" onclick="copyLink(); return false;" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-            </a>
-        </div>
-        <p>&copy; 2025 Full Agua Service. Todos los derechos reservados.</p>
+      <a href="#"><img src="logo.png" alt="Full Agua Service" class="footer-logo" width="180" height="80" loading="lazy"></a>
+      <p>Soluciones de plomería confiables y profesionales en Uruguay.</p>
+      <address>
+        <p>Las Heras 364 – Uruguay</p>
+        <p>Teléfono: <a href="tel:+59899240281" style="color: inherit; text-decoration: none;">099 240 281</a></p>
+      </address>
+      <div class="footer-qr-container">
+        <img src="fasqr.png" alt="Código QR para contactar a Full Agua Service por WhatsApp" width="120" height="120" loading="lazy">
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" aria-label="Facebook" title="Visita nuestra página de Facebook">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
+        </a>
+        <a href="https://wa.me/59899240281" target="_blank" aria-label="WhatsApp" title="Enviar WhatsApp a Full Agua Service">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
+        </a>
+        <a href="#" onclick="shareToWhatsApp(); return false;" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="#" onclick="shareToFacebook(); return false;" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+        <a href="#" onclick="copyLink(); return false;" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </a>
+      </div>
+      <p>&copy; 2025 Full Agua Service. Todos los derechos reservados.</p>
     </div>
   </footer>
-
   <div class="floating-buttons">
     <a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp" title="WhatsApp Urgente 24hs">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
     <a href="https://www.facebook.com/share/1Ccj5wYhuK/" class="floating-btn facebook" target="_blank" aria-label="Ir a Facebook" title="Visita nuestra página de Facebook">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
     </a>
   </div>
 
@@ -1039,40 +987,81 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+  <!-- LIBRERÍAS -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script>
-    let focusedElementBeforeModal = null; 
+    let focusedElementBeforeModal = null;
     const siteUrl = "https://aleotromundo.github.io/prueba/";
     const shareText = "Full Agua Service - Especialistas en Detección de Fugas, Goteras y Plomería Urgente en Uruguay. ¡Recomendado! Visita: ";
 
     function shareToWhatsApp() {
-        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + siteUrl)}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + siteUrl)}`, '_blank');
     }
     function shareToFacebook() {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}&quote=${encodeURIComponent(shareText)}`, '_blank');
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}&quote=${encodeURIComponent(shareText)}`, '_blank');
     }
     function copyLink() {
-        navigator.clipboard.writeText(siteUrl).then(() => {
-            alert("¡Enlace copiado al portapapeles!");
-        }).catch(err => {
-            console.error('Error al copiar el enlace: ', err);
-            alert("No se pudo copiar el enlace automáticamente. Por favor, cópialo manualmente: " + siteUrl);
-        });
+      navigator.clipboard.writeText(siteUrl).then(() => {
+        alert("¡Enlace copiado al portapapeles!");
+      }).catch(err => {
+        console.error('Error al copiar el enlace: ', err);
+        alert("No se pudo copiar el enlace automáticamente. Por favor, cópialo manualmente: " + siteUrl);
+      });
     }
 
+    // === TEMA ===
     const body = document.body;
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark-mode';
     body.className = savedTheme;
     themeToggle.textContent = savedTheme === 'dark-mode' ? '☀️' : '🌙';
+
+    // === PARTÍCULAS (CORREGIDAS PARA v2+) ===
+    const loadParticles = () => {
+      const isDark = document.body.classList.contains('dark-mode');
+      const particleColor = isDark ? "#ffffff" : "#007BFF";
+      tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        particles: {
+          number: { value: 40, density: { enable: true, area: 800 } },
+          color: { value: particleColor },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+          size: { value: 3, random: true, anim: { enable: false } },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "top",
+            random: true,
+            straight: false,
+            outModes: "out",
+            bounce: false
+          }
+        },
+        interactivity: {
+          detectsOn: "canvas",
+          events: {
+            onHover: { enable: false },
+            onClick: { enable: false },
+            resize: true
+          }
+        },
+        detectRetina: true
+      });
+    };
+
+    loadParticles();
+
     themeToggle.addEventListener('click', () => {
       body.classList.toggle('light-mode');
       body.classList.toggle('dark-mode');
       const isDark = body.classList.contains('dark-mode');
       localStorage.setItem('theme', isDark ? 'dark-mode' : 'light-mode');
       themeToggle.textContent = isDark ? '☀️' : '🌙';
+      loadParticles(); // Recargar partículas con nuevo color
     });
 
+    // === MENÚ MÓVIL ===
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.querySelector('.nav-links');
     menuToggle.addEventListener('click', () => {
@@ -1086,6 +1075,7 @@
       });
     });
 
+    // === MODALES ===
     function openModal(id, openerElement) {
       const modal = document.getElementById(`modal-${id}`);
       focusedElementBeforeModal = openerElement;
@@ -1108,7 +1098,7 @@
         document.body.style.overflow = 'auto';
         if (focusedElementBeforeModal) {
           focusedElementBeforeModal.focus();
-          focusedElementBeforeModal = null; 
+          focusedElementBeforeModal = null;
         }
       }
     });
@@ -1120,58 +1110,78 @@
           document.body.style.overflow = 'auto';
           if (focusedElementBeforeModal) {
             focusedElementBeforeModal.focus();
-            focusedElementBeforeModal = null; 
+            focusedElementBeforeModal = null;
           }
         }
       }
     });
 
+    // === CARRUSEL ===
     document.addEventListener('DOMContentLoaded', () => {
-      tsParticles.load("tsparticles", {
-        fpsLimit: 60,
-        particles: {
-          number: { value: 40, density: { enable: true, value_area: 800 } },
-          color: { value: "#ffffff" },
-          shape: { type: "circle" },
-          opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-          size: { value: 3, random: true, anim: { enable: false } },
-          move: {
-            enable: true,
-            speed: 1,
-            direction: "top",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-          }
-        },
-        interactivity: {
-          detectsOn: "canvas",
-          events: {
-            onHover: { enable: false },
-            onClick: { enable: false },
-            resize: true
-          }
-        },
-        detectRetina: true
-      });
+      const track = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
 
-      const toolContainer = document.getElementById('floating-tools-container');
-      const toolImages = ['favicon-192.png'];
-      function createTool() {
-        const tool = document.createElement('img');
-        tool.className = 'floating-tool';
-        tool.src = toolImages[0];
-        tool.width = 50;
-        tool.height = 50;
-        tool.style.left = Math.random() * 95 + 'vw';
-        tool.style.animationDuration = (Math.random() * 5 + 8) + 's';
-        toolContainer.appendChild(tool);
-        setTimeout(() => tool.remove(), 13000);
+      const totalImages = 5;
+      const basePath = 'img/ejemplo';
+      const extension = '.png';
+
+      for (let i = 1; i <= totalImages; i++) {
+        const img = document.createElement('img');
+        img.src = `${basePath}${i}${extension}`;
+        img.alt = `Ejemplo ${i} - Tecnología de detección`;
+        img.loading = 'lazy';
+        track.appendChild(img);
       }
 
-      // Solo activar animaciones en escritorio
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const img = track.querySelector('img');
+        if (!img) return;
+        const width = img.clientWidth || 800;
+        track.style.transform = `translateX(-${currentIndex * width}px)`;
+      }
+
+      function syncWidth() {
+        track.style.transition = 'none';
+        updateCarousel();
+        setTimeout(() => {
+          track.style.transition = 'transform 0.5s ease-in-out';
+        }, 50);
+      }
+
+      window.addEventListener('resize', syncWidth);
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalImages - 1;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+      });
+
+      setInterval(() => {
+        currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+      }, 3000);
+
+      // Herramientas flotantes (solo escritorio)
       if (window.innerWidth > 768) {
+        const toolContainer = document.getElementById('floating-tools-container');
+        function createTool() {
+          const tool = document.createElement('img');
+          tool.className = 'floating-tool';
+          tool.src = 'favicon-192.png';
+          tool.width = 50;
+          tool.height = 50;
+          tool.style.left = Math.random() * 95 + 'vw';
+          tool.style.animationDuration = (Math.random() * 5 + 8) + 's';
+          toolContainer.appendChild(tool);
+          setTimeout(() => tool.remove(), 13000);
+        }
         setInterval(createTool, 3000);
       }
     });
