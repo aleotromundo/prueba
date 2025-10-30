@@ -712,7 +712,7 @@
       .btn { padding: 12px 28px; font-size: 1rem; }
       .btn-outline { margin-left: 0; margin-top: 1rem; display: inline-block; }
       .feature-cards { margin-top: 0; padding-top: 40px; }
-      header { padding-top: 120px; padding-bottom: 120px; }
+      header { padding-top: 200px; padding-bottom: 120px; }
       .footer-qr-container img { width: 100px; height: 100px; }
       .share-buttons-header { display: none; }
       #tsparticles, #floating-tools-container { display: none; }
@@ -725,6 +725,19 @@
       background: #0056b3;
       color: white;
     }
+.share-buttons-header {
+  display: none; /* Oculto por defecto */
+  gap: 10px;
+  margin-right: 1.5rem;
+  border-right: 1px solid var(--nav-border);
+  padding-right: 1.5rem;
+  align-items: center;
+}
+@media (min-width: 769px) {
+  .share-buttons-header {
+    display: flex;
+  }
+}
   </style>
 </head>
 <body class="dark-mode">
