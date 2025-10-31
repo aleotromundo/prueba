@@ -148,7 +148,6 @@
         opacity: 0;
       }
     }
-
     /* === CARRUSEL === */
     .carousel-container {
       position: relative;
@@ -201,7 +200,6 @@
     .light-mode .carousel-btn:hover {
       background: rgba(255, 255, 255, 0.8);
     }
-
     /* === Resto de estilos (sin cambios) === */
     nav {
       position: fixed;
@@ -242,6 +240,7 @@
       margin-right: 1.5rem;
       border-right: 1px solid var(--nav-border);
       padding-right: 1.5rem;
+      align-items: center;
     }
     .share-btn {
       background: none;
@@ -283,7 +282,6 @@
       margin: 3px 0;
       border-radius: 2px;
     }
-
     header {
       position: relative;
       padding: 180px 5% 120px;
@@ -401,7 +399,6 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2.2rem;
     }
-
     /* === TARJETAS MODERNAS === */
     .service-card.clickable-card {
       position: relative;
@@ -432,7 +429,6 @@
       bottom: 0;
       opacity: 1;
     }
-
     .service-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
@@ -460,7 +456,6 @@
       font-size: 1.45rem;
       margin-bottom: 1rem;
     }
-
     /* === MODAL MODERNO === */
     .modal {
       display: none;
@@ -515,7 +510,6 @@
     .close-modal:hover {
       background: rgba(255,255,255,0.2);
     }
-
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -568,20 +562,20 @@
     .project-card:hover::before {
       opacity: 1;
     }
-.cta-section {
-  background: rgba(20, 20, 30, 0.55); /* Fondo oscuro translúcido */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--border-radius);
-  padding: 4rem;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-.light-mode .cta-section {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(0, 0, 0, 0.1);
-}
+    .cta-section {
+      background: rgba(20, 20, 30, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius);
+      padding: 4rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .light-mode .cta-section {
+      background: rgba(255, 255, 255, 0.65);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
     .cta-section h2 {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       margin-bottom: 1.5rem;
@@ -682,9 +676,17 @@
       height: 32px;
       fill: white;
     }
-    @media (min-width: 769px) {
-      .share-buttons-header { display: flex; }
+
+    /* === BOTONES DE COMPARTIR: SIEMPRE VISIBLES === */
+    .share-buttons-header {
+      display: flex;
+      gap: 8px;
+      margin-right: 1rem;
+      border-right: 1px solid var(--nav-border);
+      padding-right: 1rem;
+      align-items: center;
     }
+
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
@@ -703,20 +705,35 @@
       }
       .nav-links.active { left: 0; }
       .menu-toggle { display: flex; }
-        .logo {
-    height: 75px;
-    max-width: 180px; /* o el valor que desees */
-    width: auto;       /* mantiene la proporción */
-  }
-}
+      .logo {
+        height: 75px;
+        max-width: 160px; /* Más angosto en móviles */
+        width: auto;
+      }
       .btn { padding: 12px 28px; font-size: 1rem; }
       .btn-outline { margin-left: 0; margin-top: 1rem; display: inline-block; }
       .feature-cards { margin-top: 0; padding-top: 40px; }
       header { padding-top: 200px; padding-bottom: 120px; }
       .footer-qr-container img { width: 100px; height: 100px; }
-      .share-buttons-header { display: none; }
       #tsparticles, #floating-tools-container { display: none; }
+
+      /* Botones de compartir en móvil: más compactos */
+      .share-buttons-header {
+        gap: 6px;
+        margin-right: 0.8rem;
+        padding-right: 0.8rem;
+      }
+      .share-btn {
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+      }
+      .share-btn svg {
+        width: 14px;
+        height: 14px;
+      }
     }
+
     .light-mode .btn-outline {
       color: #ffb300;
       border-color: #ffbb00;
@@ -725,19 +742,6 @@
       background: #0056b3;
       color: white;
     }
-.share-buttons-header {
-  display: none; /* Oculto por defecto */
-  gap: 10px;
-  margin-right: 1.5rem;
-  border-right: 1px solid var(--nav-border);
-  padding-right: 1.5rem;
-  align-items: center;
-}
-@media (min-width: 769px) {
-  .share-buttons-header {
-    display: flex;
-  }
-}
   </style>
 </head>
 <body class="dark-mode">
@@ -778,7 +782,9 @@
       <div class="hero-content">
         <h1>Detectamos pérdidas de agua invisibles</h1>
         <p class="hero-text">Profesionales con tecnología de punta para resolver fugas, humedades, baja presión y más — sin romper paredes.</p>
-        <a href="https://wa.me/59899240281" class="btn btn-cta">Presupuesto sin costo</a>
+        <a href="https://wa.me/59899240281" class="btn btn-cta"
+           onclick="gtag('event', 'click_whatsapp', { event_category: 'engagement', event_label: 'main_cta' });"
+           rel="noopener">Presupuesto sin costo</a>
         <a href="#servicios" class="btn btn-outline">Ver servicios</a>
       </div>
     </header>
@@ -897,7 +903,9 @@
         <div class="cta-section">
           <h2>¿Necesita soluciones de plomería confiables?</h2>
           <p class="hero-text" style="margin-bottom: 2rem;">Estamos aquí para ayudarle con cualquier problema, grande o pequeño.</p>
-          <a href="https://wa.me/59899240281" class="btn btn-cta">Pedir Presupuesto gratis</a>
+          <a href="https://wa.me/59899240281" class="btn btn-cta"
+             onclick="gtag('event', 'click_whatsapp', { event_category: 'engagement', event_label: 'cta_section' });"
+             rel="noopener">Pedir Presupuesto gratis</a>
         </div>
       </div>
     </section>
@@ -934,11 +942,15 @@
           </div>
           <div class="contact-item">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            <span><a href="https://wa.me/59899240281" style="color:var(--text); text-decoration: none;">099 240 281</a></span>
+            <span><a href="https://wa.me/59899240281"
+                     onclick="gtag('event', 'click_whatsapp', { event_category: 'engagement', event_label: 'contact_section' });"
+                     rel="noopener" style="color:var(--text); text-decoration: none;">099 240 281</a></span>
           </div>
         </address>
         <div style="text-align:center; margin-top:2rem;">
-          <a href="https://wa.me/59899240281" class="btn btn-cta">Solicitar presupuesto sin costo</a>
+          <a href="https://wa.me/59899240281" class="btn btn-cta"
+             onclick="gtag('event', 'click_whatsapp', { event_category: 'engagement', event_label: 'contact_cta' });"
+             rel="noopener">Solicitar presupuesto sin costo</a>
         </div>
       </div>
     </section>
@@ -955,10 +967,14 @@
         <img src="fasqr.png" alt="Código QR para contactar a Full Agua Service por WhatsApp" width="120" height="120" loading="lazy">
       </div>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" aria-label="Facebook" title="Visita nuestra página de Facebook">
+        <a href="https://www.facebook.com/share/1Ccj5wYhuK/" target="_blank" rel="noopener"
+           onclick="gtag('event', 'click_facebook', { event_category: 'engagement', event_label: 'footer' });"
+           aria-label="Facebook" title="Visita nuestra página de Facebook">
           <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
         </a>
-        <a href="https://wa.me/59899240281" target="_blank" aria-label="WhatsApp" title="Enviar WhatsApp a Full Agua Service">
+        <a href="https://wa.me/59899240281" target="_blank" rel="noopener"
+           onclick="gtag('event', 'click_whatsapp', { event_category: 'engagement', event_label: 'footer' });"
+           aria-label="WhatsApp" title="Enviar WhatsApp a Full Agua Service">
           <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.011719 2C6.5057187 2 2.0234844 6.478375 2.0214844 11.984375C2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562L2 22l5.2324219-1.236328C8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516h.003906C17.514766 21.978516 21.995047 17.499141 21.998047 11.994141S17.514766 2 12.011719 2zM8.4765625 7.375c-.167 0-.437.0625-.666.3125s-.946 1.1020781-.946 2.3300781s.9-2.832031 1.024 2.9990231c.124.166 1.7266719 2.765625 4.2636719 3.765625C14.32675 16.946234 14.754891 16.782234 15.212891 16.740234c.458-.041 1.477547-.602547 1.685547-1.185547s.21-.6885.148-7.918c-.062-.104-.2285-.166-.4785-.291s-1.227-.6025-1.456-.6855c-.229-.083-.3965-.125-.5625.125s-.637.76-.783 1.083c-.146.167-.291.1895-.541.0645s-1.093-.396-2.047-1.246c-.742-.661-1.242-1.4765-1.388-1.7265s.131-.237.256-.362c.112-.112.248-.2915.373-.4375s.042-.104 0-.146c-.042-.042-.396-.9475-.542-1.3125c-.167-.344-.333-.354-.488-.362z"/></svg>
         </a>
         <a href="#" onclick="shareToWhatsApp(); return false;" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
@@ -975,14 +991,17 @@
     </div>
   </footer>
   <div class="floating-buttons">
-    <a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp" title="WhatsApp Urgente 24hs">
+    <a href="https://wa.me/59899240281" class="floating-btn whatsapp" target="_blank" rel="noopener"
+       onclick="gtag('event', 'click_whatsapp', { event_category: 'engagement', event_label: 'floating_button' });"
+       aria-label="Contactar por WhatsApp" title="WhatsApp Urgente 24hs">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
-    <a href="https://www.facebook.com/share/1Ccj5wYhuK/" class="floating-btn facebook" target="_blank" aria-label="Ir a Facebook" title="Visita nuestra página de Facebook">
+    <a href="https://www.facebook.com/share/1Ccj5wYhuK/" class="floating-btn facebook" target="_blank" rel="noopener"
+       onclick="gtag('event', 'click_facebook', { event_category: 'engagement', event_label: 'floating_button' });"
+       aria-label="Ir a Facebook" title="Visita nuestra página de Facebook">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/></svg>
     </a>
   </div>
-
   <!-- Modales -->
   <div class="modal" id="modal-banos">
     <div class="modal-content">
@@ -1044,14 +1063,12 @@
       </ul>
     </div>
   </div>
-
   <!-- LIBRERÍAS -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script>
     let focusedElementBeforeModal = null;
     const siteUrl = "https://fullaguaservice.vercel.app/";
     const shareText = "Full Agua Service - Especialistas en Detección de Fugas, Goteras y Plomería Urgente en Uruguay. ¡Recomendado! Visita: ";
-
     function shareToWhatsApp() {
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + siteUrl)}`, '_blank');
     }
@@ -1066,14 +1083,12 @@
         alert("No se pudo copiar el enlace automáticamente. Por favor, cópialo manualmente: " + siteUrl);
       });
     }
-
     // === TEMA ===
     const body = document.body;
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark-mode';
     body.className = savedTheme;
     themeToggle.textContent = savedTheme === 'dark-mode' ? '☀️' : '🌙';
-
     // === PARTÍCULAS ===
     const loadParticles = () => {
       const isDark = document.body.classList.contains('dark-mode');
@@ -1108,7 +1123,6 @@
       });
     };
     loadParticles();
-
     themeToggle.addEventListener('click', () => {
       body.classList.toggle('light-mode');
       body.classList.toggle('dark-mode');
@@ -1117,7 +1131,6 @@
       themeToggle.textContent = isDark ? '☀️' : '🌙';
       loadParticles();
     });
-
     // === MENÚ MÓVIL ===
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.querySelector('.nav-links');
@@ -1131,7 +1144,6 @@
         menuToggle.classList.remove('active');
       });
     });
-
     // === MODALES ===
     function openModal(id, openerElement) {
       const modal = document.getElementById(`modal-${id}`);
@@ -1154,7 +1166,6 @@
         focusedElementBeforeModal = null;
       }
     }
-
     // === HACER TARJETAS CLICKEABLES ===
     document.querySelectorAll('.clickable-card').forEach(card => {
       card.addEventListener('click', () => {
@@ -1162,7 +1173,6 @@
         openModal(modalId, card);
       });
     });
-
     window.addEventListener('click', (e) => {
       if (e.target.classList.contains('modal')) {
         e.target.style.display = 'none';
@@ -1173,7 +1183,6 @@
         }
       }
     });
-
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         const activeModal = document.querySelector('.modal[style*="display: flex"]');
@@ -1187,7 +1196,6 @@
         }
       }
     });
-
     // === CARRUSEL ===
     document.addEventListener('DOMContentLoaded', () => {
       const track = document.getElementById('carouselTrack');
@@ -1251,12 +1259,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const problemsTrack = document.getElementById('problemsTrack');
   const prevProblemsBtn = document.getElementById('prevProblemsBtn');
   const nextProblemsBtn = document.getElementById('nextProblemsBtn');
-
   if (!problemsTrack) return;
-
   const totalProblems = 5; // 👈 AJUSTA ESTE NÚMERO SEGÚN CUÁNTAS IMÁGENES TENGAS
   const basePath = 'img/problemas';
-
   for (let i = 1; i <= totalProblems; i++) {
     const img = document.createElement('img');
     img.src = `${basePath}${i}.webp`;
@@ -1264,16 +1269,13 @@ document.addEventListener('DOMContentLoaded', () => {
     img.loading = 'lazy';
     problemsTrack.appendChild(img);
   }
-
   let currentProblemIndex = 0;
-
   function updateProblemsCarousel() {
     const img = problemsTrack.querySelector('img');
     if (!img) return;
     const width = img.clientWidth || 800;
     problemsTrack.style.transform = `translateX(-${currentProblemIndex * width}px)`;
   }
-
   function syncProblemsWidth() {
     problemsTrack.style.transition = 'none';
     updateProblemsCarousel();
@@ -1281,19 +1283,15 @@ document.addEventListener('DOMContentLoaded', () => {
       problemsTrack.style.transition = 'transform 0.5s ease-in-out';
     }, 50);
   }
-
   window.addEventListener('resize', syncProblemsWidth);
-
   prevProblemsBtn.addEventListener('click', () => {
     currentProblemIndex = (currentProblemIndex > 0) ? currentProblemIndex - 1 : totalProblems - 1;
     updateProblemsCarousel();
   });
-
   nextProblemsBtn.addEventListener('click', () => {
     currentProblemIndex = (currentProblemIndex < totalProblems - 1) ? currentProblemIndex + 1 : 0;
     updateProblemsCarousel();
   });
-
   // Auto-avance cada 4 segundos
   setInterval(() => {
     currentProblemIndex = (currentProblemIndex < totalProblems - 1) ? currentProblemIndex + 1 : 0;
