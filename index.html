@@ -857,13 +857,13 @@
       </div>
 
       <!-- Botón flotante del podcast -->
-      <div class="podcast-floating-btn" id="podcastBtn" role="button" tabindex="0" aria-label="Reproducir podcast explicativo">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-        <span>Podcast Explicativo</span>
-      </div>
-      <audio id="podcastAudio" src="audio/podcast.m4a" preload="metadata"></audio>
+<div class="podcast-floating-btn" id="podcastBtn" role="button" tabindex="0" aria-label="Reproducir podcast explicativo">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8 5v14l11-7z"/>
+  </svg>
+  <span id="podcastBtnText">Podcast Explicativo</span>
+</div>
+<audio id="podcastAudio" src="audio/podcast.m4a" preload="metadata"></audio>
     </header>
 
     <!-- Carrusel: Soluciones Profesionales -->
@@ -1399,37 +1399,72 @@
     });
 
     // === PODCAST ===
-    const podcastBtn = document.getElementById('podcastBtn');
-    const podcastAudio = document.getElementById('podcastAudio');
+// === PODCAST CON INDICADOR DE CARGA ===
+const podcastBtn = document.getElementById('podcastBtn');
+const podcastBtnText = document.getElementById('podcastBtnText');
+const podcastAudio = document.getElementById('podcastAudio');
 
-    podcastBtn.addEventListener('click', () => {
-      if (podcastAudio.paused) {
-        podcastAudio.play();
-        podcastBtn.innerHTML = `
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-          </svg>
-          <span>En reproducción...</span>
-        `;
-      } else {
-        podcastAudio.pause();
-        podcastBtn.innerHTML = `
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          <span>Podcast Explicativo</span>
-        `;
-      }
-    });
+let isReady = false;
 
-    podcastAudio.addEventListener('ended', () => {
-      podcastBtn.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-        <span>Podcast Explicativo</span>
-      `;
-    });
+// Detectar cuando el audio está listo para reproducirse
+podcastAudio.addEventListener('canplaythrough', () => {
+  isReady = true;
+  podcastBtn.disabled = false;
+  podcastBtn.style.opacity = '1';
+  podcastBtn.style.pointerEvents = 'auto';
+  if (podcastAudio.paused) {
+    podcastBtnText.textContent = 'Podcast Explicativo';
+    podcastBtn.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <span id="podcastBtnText">Podcast Explicativo</span>
+    `;
+  }
+});
+
+// Manejar clic en el botón
+podcastBtn.addEventListener('click', () => {
+  if (!isReady) {
+    // Mostrar mensaje de carga
+    podcastBtn.disabled = true;
+    podcastBtn.style.opacity = '0.7';
+    podcastBtn.style.pointerEvents = 'none';
+    podcastBtnText.textContent = 'Cargando...';
+
+    // Intentar cargar el audio si aún no se ha hecho
+    podcastAudio.load();
+    return;
+  }
+
+  if (podcastAudio.paused) {
+    podcastAudio.play();
+    podcastBtn.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+      <span id="podcastBtnText">En reproducción...</span>
+    `;
+  } else {
+    podcastAudio.pause();
+    podcastBtn.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <span id="podcastBtnText">Podcast Explicativo</span>
+    `;
+  }
+});
+
+// Si el audio termina, volver al estado inicial
+podcastAudio.addEventListener('ended', () => {
+  podcastBtn.innerHTML = `
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    <span id="podcastBtnText">Podcast Explicativo</span>
+  `;
+});
   </script>
 </body>
 </html>
