@@ -803,17 +803,18 @@
   <!-- NAVBAR REESTRUCTURADO -->
   <nav>
     <a href="#"><img src="logo.png" alt="Full Agua Service" class="logo" width="95" height="90" loading="lazy"></a>
-    <div class="share-buttons-header">
-      <button class="share-btn" onclick="shareToWhatsApp()" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      </button>
-      <button class="share-btn" onclick="shareToFacebook()" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-      </button>
-      <button class="share-btn" onclick="copyLink()" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-      </button>
-    </div>
+<div class="share-buttons-header">
+  <span class="share-label">Compartir</span>
+  <button class="share-btn" onclick="shareToWhatsApp()" aria-label="Compartir en WhatsApp" title="Compartir este sitio por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+  <button class="share-btn" onclick="shareToFacebook()" aria-label="Compartir en Facebook" title="Compartir este sitio en Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+  </button>
+  <button class="share-btn" onclick="copyLink()" aria-label="Copiar enlace" title="Copiar el enlace del sitio al portapapeles">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+  </button>
+</div>
     <div class="nav-controls">
       <button class="theme-toggle" id="themeToggle">☀️</button>
       <div class="menu-toggle" id="menuToggle">
@@ -848,7 +849,7 @@
   </svg>
   <span id="podcastBtnText">Podcast Explicativo</span>
 </div>
-<audio id="podcastAudio" src="audio/podcast.m4a" preload="metadata"></audio>
+<audio id="podcastAudio" src="audio/podcast.mp3" preload="metadata"></audio>
     </header>
     <!-- Carrusel: Soluciones Profesionales -->
     <section id="carrusel-problemas">
@@ -942,19 +943,19 @@
         <h2 class="section-title">Proyectos Destacados</h2>
         <div class="projects">
           <div class="project-card">
-            <img src="bano-chile.jpg" alt="Baño moderno" width="280" height="280" loading="lazy">
+            <img src="bano-chile.webp" alt="Baño moderno" width="280" height="280" loading="lazy">
             <div class="project-overlay">Baño moderno</div>
           </div>
           <div class="project-card">
-            <img src="regadio2.jpg" alt="Sistema de riego" width="280" height="280" loading="lazy">
+            <img src="regadio2.webp" alt="Sistema de riego" width="280" height="280" loading="lazy">
             <div class="project-overlay">Sistema de riego</div>
           </div>
           <div class="project-card">
-            <img src="nueva_343.jpg" alt="Termofusión de cañerías" width="280" height="280" loading="lazy">
+            <img src="nueva_343.webp" alt="Termofusión de cañerías" width="280" height="280" loading="lazy">
             <div class="project-overlay">Termofusión de cañerías</div>
           </div>
           <div class="project-card">
-            <img src="maquina-de-geofono.jpg" alt="Detección con geófono" width="280" height="280" loading="lazy">
+            <img src="maquina-de-geofono.webp" alt="Detección con geófono" width="280" height="280" loading="lazy">
             <div class="project-overlay">Detección con geófono</div>
           </div>
         </div>
@@ -1070,7 +1071,7 @@
       <button class="close-modal" onclick="closeModal('banos')">&times;</button>
       <h2>Baños y Caños</h2>
       <p>Ofrecemos soluciones integrales para la instalación, renovación y reparación de baños en hogares y empresas. Trabajamos con materiales de primera calidad y garantizamos acabados impecables.</p>
-      <img src="bano-chile.jpg" alt="Baño" loading="lazy">
+      <img src="bano-chile.webp" alt="Baño" loading="lazy">
       <p>Nuestros servicios incluyen:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Reemplazo de sanitarios y griferías</li>
@@ -1085,7 +1086,7 @@
       <button class="close-modal" onclick="closeModal('infrarrojos')">&times;</button>
       <h2>Cámara de Infrarrojos</h2>
       <p>Utilizamos tecnología térmica avanzada para detectar fugas de agua ocultas en paredes, techos y pisos sin necesidad de perforar ni romper superficies.</p>
-      <img src="maquina-de-geofono.jpg" alt="Geófono" loading="lazy">
+      <img src="maquina-de-geofono.webp" alt="Geófono" loading="lazy">
       <p>Beneficios:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Diagnóstico preciso en minutos</li>
@@ -1100,7 +1101,7 @@
       <button class="close-modal" onclick="closeModal('humedad')">&times;</button>
       <h2>Causas de Humedad</h2>
       <p>Identificamos el origen real de las humedades: filtraciones, condensación, capilaridad o fugas internas. No nos limitamos a pintar: resolvemos la raíz del problema.</p>
-      <img src="plomero.jpg" alt="Plomero" loading="lazy">
+      <img src="plomero.webp" alt="Plomero" loading="lazy">
       <p>Nuestro enfoque incluye:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Análisis con humedímetros profesionales</li>
@@ -1115,7 +1116,7 @@
       <button class="close-modal" onclick="closeModal('presion')">&times;</button>
       <h2>Poca Presión de Agua</h2>
       <p>¿El agua sale débil en tu ducha o cocina? Diagnosticamos y solucionamos problemas en la red domiciliaria, válvulas, filtros o reguladores de presión.</p>
-      <img src="roseta-de-agua-ducha.jpg" alt="Ducha" loading="lazy">
+      <img src="roseta-de-agua-ducha.webp" alt="Ducha" loading="lazy">
       <p>Tratamos causas como:</p>
       <ul style="padding-left:1.5rem; margin:1rem 0;">
         <li>Obstrucciones por sarro o sedimentos</li>
