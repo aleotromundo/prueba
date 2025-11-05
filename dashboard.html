@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Analytics - Full Agua Service</title>
+  <style>
+    :root {
+      --primary: #99a6b8;
+      --accent: #007BFF;
+      --cta-orange: #EB7100;
+      --accent-green: #00D084;
+      --dark-bg: #0f0f15;
+      --card-bg: rgba(20, 20, 30, 0.75);
+      --text-light: #FFFFFF;
+      --border-radius: 16px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f15 0%, #1a1a2e 100%);
+      color: var(--text-light);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* === LOGIN === */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .login-logo h1 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .login-logo p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-login:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    }
+
+    .error-message {
+      background: rgba(235, 113, 0, 0.2);
+      border: 1px solid var(--cta-orange);
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 1rem;
+      text-align: center;
+      color: var(--cta-orange);
+      display: none;
+    }
+
+    /* === DASHBOARD === */
+    .dashboard {
+      display: block;
+      min-height: 100vh;
+    }
+
+    .dashboard-header {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .dashboard-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .dashboard-title h1 {
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .btn-logout {
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--cta-orange);
+      background: transparent;
+      color: var(--cta-orange);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-logout:hover {
+      background: var(--cta-orange);
+      color: white;
+    }
+
+    .btn-refresh {
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--accent-green);
+      background: transparent;
+      color: var(--accent-green);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-refresh:hover {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .dashboard-content {
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-icon.visits {
+      background: rgba(0, 123, 255, 0.2);
+      color: var(--accent);
+    }
+
+    .stat-icon.contact {
+      background: rgba(0, 208, 132, 0.2);
+      color: var(--accent-green);
+    }
+
+    .stat-icon.share {
+      background: rgba(235, 113, 0, 0.2);
+      color: var(--cta-orange);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #007BFF, #00D084);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    .data-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .table-container {
+      overflow-x: auto;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .table-container::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    thead {
+      background: rgba(0, 123, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    tbody tr {
+      transition: var(--transition);
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .badge.whatsapp {
+      background: rgba(37, 211, 102, 0.2);
+      color: #25D366;
+      border: 1px solid #25D366;
+    }
+
+    .badge.facebook {
+      background: rgba(24, 119, 242, 0.2);
+      color: #1877F2;
+      border: 1px solid #1877F2;
+    }
+
+    .badge.copy_link {
+      background: rgba(153, 166, 184, 0.2);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 3rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dashboard-title h1 {
+        font-size: 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th, td {
+        padding: 0.75rem 0.5rem;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- LOGIN -->
+  <div class="login-container" id="loginContainer">
+    <div class="login-box">
+      <div class="login-logo">
+        <h1>🔐 Full Agua Analytics</h1>
+        <p>Panel de Control Administrativo</p>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-login">Iniciar Sesión</button>
+        <div class="error-message" id="errorMessage">Usuario o contraseña incorrectos</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard hidden" id="dashboard">
+    <header class="dashboard-header">
+      <div class="dashboard-title">
+        <h1>📊 Dashboard Analytics</h1>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn-refresh" onclick="loadData()">🔄 Actualizar</button>
+        <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <!-- ESTADÍSTICAS RESUMEN -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon visits">👁️</div>
+          <div class="stat-number" id="totalVisits">0</div>
+          <div class="stat-label">Visitas Totales</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon contact">📞</div>
+          <div class="stat-number" id="totalContacts">0</div>
+          <div class="stat-label">Clicks de Contacto</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon share">📤</div>
+          <div class="stat-number" id="totalShares">0</div>
+          <div class="stat-label">Veces Compartido</div>
+        </div>
+      </div>
+
+      <!-- VISITAS A LA PÁGINA -->
+      <section class="data-section">
+        <h2 class="section-title">👁️ Visitas a la Página</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha y Hora</th>
+                <th>Navegador</th>
+                <th>Resolución</th>
+                <th>Ubicación</th>
+              </tr>
+            </thead>
+            <tbody id="visitsTable">
+              <tr><td colspan="4" class="loading">Cargando datos...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CLICKS DE CONTACTO -->
+      <section class="data-section">
+        <h2 class="section-title">📞 Clicks de Contacto (WhatsApp/Facebook)</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha y Hora</th>
+                <th>Plataforma</th>
+                <th>Ubicación del Botón</th>
+                <th>URL</th>
+              </tr>
+            </thead>
+            <tbody id="contactsTable">
+              <tr><td colspan="4" class="loading">Cargando datos...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- COMPARTIDOS -->
+      <section class="data-section">
+        <h2 class="section-title">📤 Veces que se Compartió el Sitio</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha y Hora</th>
+                <th>Plataforma</th>
+                <th>Ubicación del Botón</th>
+              </tr>
+            </thead>
+            <tbody id="sharesTable">
+              <tr><td colspan="3" class="loading">Cargando datos...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Configuración de Supabase
+    const SUPABASE_URL = 'https://vbcuppeweraucngxzoeq.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZiY3VwcGV3ZXJhdWNuZ3h6b2VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyODQ5NDcsImV4cCI6MjA3Nzg2MDk0N30.Hfcl-nLF8wElCWJ1etGL5pfDTQ2946gYUJ81mIyxEO4';
+
+    // Credenciales (CAMBIAR POR LAS TUYAS)
+    const CREDENTIALS = {
+      username: 'admin',
+      password: 'fullAgua2025'
+    };
+
+    // LOGIN
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      if (username === CREDENTIALS.username && password === CREDENTIALS.password) {
+        sessionStorage.setItem('authenticated', 'true');
+        showDashboard();
+        loadData();
+      } else {
+        document.getElementById('errorMessage').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('errorMessage').style.display = 'none';
+        }, 3000);
+      }
+    });
+
+    // LOGOUT
+    function logout() {
+      sessionStorage.removeItem('authenticated');
+      document.getElementById('dashboard').classList.add('hidden');
+      document.getElementById('loginContainer').style.display = 'flex';
+    }
+
+    // MOSTRAR DASHBOARD
+    function showDashboard() {
+      document.getElementById('loginContainer').style.display = 'none';
+      document.getElementById('dashboard').classList.remove('hidden');
+    }
+
+    // VERIFICAR AUTENTICACIÓN AL CARGAR
+    if (sessionStorage.getItem('authenticated') === 'true') {
+      showDashboard();
+      loadData();
+    }
+
+    // CARGAR DATOS DE SUPABASE
+    async function loadData() {
+      try {
+        await Promise.all([
+          loadVisits(),
+          loadContacts(),
+          loadShares()
+        ]);
+      } catch (error) {
+        console.error('Error cargando datos:', error);
+      }
+    }
+
+    // CARGAR VISITAS
+    async function loadVisits() {
+      try {
+        // 1. Obtener el TOTAL de visitas (sin límite)
+        const countResponse = await fetch(`${SUPABASE_URL}/rest/v1/page_visits?select=id`, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'count=exact'
+          }
+        });
+        
+        const totalCount = countResponse.headers.get('content-range')?.split('/')[1] || '0';
+        document.getElementById('totalVisits').textContent = totalCount;
+        
+        // 2. Obtener las últimas 10 visitas para la tabla (cambiado de 50 a 10)
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/page_visits?select=*&order=visited_at.desc&limit=10`, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+        
+        const data = await response.json();
+        
+        const tbody = document.getElementById('visitsTable');
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" class="no-data">No hay visitas registradas</td></tr>';
+          return;
+        }
+        
+        tbody.innerHTML = data.map(visit => `
+          <tr>
+            <td>${formatDate(visit.visited_at)}</td>
+            <td>${getBrowser(visit.user_agent)}</td>
+            <td>${visit.screen_width}x${visit.screen_height}</td>
+            <td>${visit.page_url || 'N/A'}</td>
+          </tr>
+        `).join('');
+      } catch (error) {
+        console.error('Error cargando visitas:', error);
+        document.getElementById('visitsTable').innerHTML = '<tr><td colspan="4" class="no-data">Error al cargar datos</td></tr>';
+      }
+    }
+
+    // CARGAR CONTACTOS
+    async function loadContacts() {
+      try {
+        // Total de contactos
+        const countResponse = await fetch(`${SUPABASE_URL}/rest/v1/contact_clicks?select=id`, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'count=exact'
+          }
+        });
+        
+        const totalCount = countResponse.headers.get('content-range')?.split('/')[1] || '0';
+        document.getElementById('totalContacts').textContent = totalCount;
+        
+        // Últimos 10 contactos (cambiado de 50 a 10)
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_clicks?select=*&order=clicked_at.desc&limit=10`, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+        
+        const data = await response.json();
+        
+        const tbody = document.getElementById('contactsTable');
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" class="no-data">No hay clicks de contacto registrados</td></tr>';
+          return;
+        }
+        
+        tbody.innerHTML = data.map(contact => `
+          <tr>
+            <td>${formatDate(contact.clicked_at)}</td>
+            <td><span class="badge ${contact.contact_type}">${contact.contact_type === 'whatsapp' ? '📱 WhatsApp' : '📘 Facebook'}</span></td>
+            <td>${formatLocation(contact.button_location)}</td>
+            <td style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">${contact.target_url || 'N/A'}</td>
+          </tr>
+        `).join('');
+      } catch (error) {
+        console.error('Error cargando contactos:', error);
+        document.getElementById('contactsTable').innerHTML = '<tr><td colspan="4" class="no-data">Error al cargar datos</td></tr>';
+      }
+    }
+
+    // CARGAR COMPARTIDOS
+    async function loadShares() {
+      try {
+        // Total de compartidos
+        const countResponse = await fetch(`${SUPABASE_URL}/rest/v1/share_clicks?select=id`, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'count=exact'
+          }
+        });
+        
+        const totalCount = countResponse.headers.get('content-range')?.split('/')[1] || '0';
+        document.getElementById('totalShares').textContent = totalCount;
+        
+        // Últimos 50 compartidos
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/share_clicks?select=*&order=shared_at.desc&limit=50`, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+        
+        const data = await response.json();
+        
+        const tbody = document.getElementById('sharesTable');
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="3" class="no-data">No hay compartidos registrados</td></tr>';
+          return;
+        }
+        
+        tbody.innerHTML = data.map(share => `
+          <tr>
+            <td>${formatDate(share.shared_at)}</td>
+            <td><span class="badge ${share.share_platform}">${getPlatformIcon(share.share_platform)}</span></td>
+            <td>${formatLocation(share.button_location)}</td>
+          </tr>
+        `).join('');
+      } catch (error) {
+        console.error('Error cargando compartidos:', error);
+        document.getElementById('sharesTable').innerHTML = '<tr><td colspan="3" class="no-data">Error al cargar datos</td></tr>';
+      }
+    }
+
+    // UTILIDADES
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleString('es-UY', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+
+    function getBrowser(userAgent) {
+      if (!userAgent) return 'Desconocido';
+      if (userAgent.includes('Chrome')) return 'Chrome';
+      if (userAgent.includes('Firefox')) return 'Firefox';
+      if (userAgent.includes('Safari')) return 'Safari';
+      if (userAgent.includes('Edge')) return 'Edge';
+      return 'Otro';
+    }
+
+    function formatLocation(location) {
+      const locations = {
+        'floating_button': '🔘 Botón Flotante',
+        'header_cta': '📌 Header CTA',
+        'cta_section': '🎯 Sección CTA',
+        'contact_section': '📧 Sección Contacto',
+        'footer': '⬇️ Footer',
+        'footer_contact': '⬇️ Footer Contacto',
+        'footer_social': '⬇️ Footer Social',
+        'header_share': '📤 Header Compartir',
+        'footer_share': '📤 Footer Compartir'
+      };
+      return locations[location] || location;
+    }
+
+    function getPlatformIcon(platform) {
+      const platforms = {
+        'whatsapp': '📱 WhatsApp',
+        'facebook': '📘 Facebook',
+        'copy_link': '🔗 Copiar Link'
+      };
+      return platforms[platform] || platform;
+    }
+  </script>
+</body>
+</html>
