@@ -3,7 +3,14 @@ import { GoogleGenAI, Modality } from "@google/genai";
 import { AgentRole, Message } from "../types";
 
 // Always use the process.env.API_KEY directly for initialization as per guidelines.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = import.meta.env.VITE_API_KEY;
+
+if (!apiKey) {
+  console.error("Falta VITE_API_KEY en las variables de entorno");
+  throw new Error("API key no configurada");
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 const KNOWLEDGE_PROFILE = `
 PERFIL ACADÉMICO Y EXPERTO (Obligatorio para ambos agentes):
