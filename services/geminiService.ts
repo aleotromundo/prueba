@@ -87,7 +87,7 @@ export async function generateConclusion(
   sourceText: string,
   history: Message[]
 ): Promise<string> {
-  const model = 'gemini-3-pro-preview';
+  const model = 'gemini-1.5-flash-latest';
   const conversationContext = history.map(m => `${m.role}: ${m.content}`).join('\n\n');
   
   const prompt = `
