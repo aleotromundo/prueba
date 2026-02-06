@@ -216,67 +216,78 @@ const App: React.FC = () => {
     }
   };
 
-  const exportToPDF = () => {
-    const container = document.getElementById('pdf-export-container');
-    if (!container) return;
+  const exportToPDF = async () => {
+  const container = document.getElementById('pdf-export-container');
+  if (!container) return;
 
-    const content = `
-      <div id="pdf-export-content" style="font-family: 'Inter', sans-serif; padding: 20px;">
-        <h1 style="font-family: 'Playfair Display', serif; color: #1e293b; text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; page-break-after: avoid;">Reporte de Debate IA</h1>
-        <p style="text-align: right; font-size: 12px; color: #64748b; margin-bottom: 20px;">Fecha: ${new Date().toLocaleDateString()}</p>
-        <div style="margin-bottom: 20px; page-break-after: avoid;">
-          <h3 style="color: #475569; page-break-after: avoid;">Contexto: ${state.fileName || 'Texto ingresado'}</h3>
-        </div>
-        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;"/>
-        ${state.history.map(m => `
-          <div style="
-            margin-bottom: 24px; 
-            padding: 15px; 
-            border-radius: 10px; 
-            background: ${m.role === AgentRole.ARCHITECT ? '#f5f7ff' : m.role === AgentRole.SKEPTIC ? '#fff5f5' : '#1e293b'}; 
-            color: ${m.role === AgentRole.MODERATOR ? 'white' : 'black'};
-            page-break-inside: avoid;
-            break-inside: avoid;
-          ">
-            <b style="display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; page-break-after: avoid;">
-              ${m.role === AgentRole.ARCHITECT ? 'EL ARQUITECTO' : m.role === AgentRole.SKEPTIC ? 'EL ESCÉPTICO' : 'CONCLUSIÓN DEL MODERADOR'}
-            </b>
-            <div style="line-height: 1.6; font-size: 15px; orphans: 3; widows: 3;">${m.content}</div>
-          </div>
-        `).join('')}
+  // Mostrar estado de carga
+  setState(prev => ({ ...prev, isGenerating: true }));
+
+  // Pequeño delay para que React actualice la UI
+  await new Promise(resolve => setTimeout(resolve, 50));
+
+  const content = `
+    <div id="pdf-export-content" style="font-family: 'Inter', sans-serif; padding: 20px;">
+      <h1 style="font-family: 'Playfair Display', serif; color: #1e293b; text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; page-break-after: avoid;">Reporte de Debate IA</h1>
+      <p style="text-align: right; font-size: 12px; color: #64748b; margin-bottom: 20px;">Fecha: ${new Date().toLocaleDateString()}</p>
+      <div style="margin-bottom: 20px; page-break-after: avoid;">
+        <h3 style="color: #475569; page-break-after: avoid;">Contexto: ${state.fileName || 'Texto ingresado'}</h3>
       </div>
-    `;
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;"/>
+      ${state.history.map(m => `
+        <div style="
+          margin-bottom: 24px; 
+          padding: 15px; 
+          border-radius: 10px; 
+          background: ${m.role === AgentRole.ARCHITECT ? '#f5f7ff' : m.role === AgentRole.SKEPTIC ? '#fff5f5' : '#1e293b'}; 
+          color: ${m.role === AgentRole.MODERATOR ? 'white' : 'black'};
+          page-break-inside: avoid;
+          break-inside: avoid;
+        ">
+          <b style="display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; page-break-after: avoid;">
+            ${m.role === AgentRole.ARCHITECT ? 'EL ARQUITECTO' : m.role === AgentRole.SKEPTIC ? 'EL ESCÉPTICO' : 'CONCLUSIÓN DEL MODERADOR'}
+          </b>
+          <div style="line-height: 1.6; font-size: 15px; orphans: 3; widows: 3;">${m.content}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 
-    container.innerHTML = content;
-    container.style.display = 'block';
+  container.innerHTML = content;
+  container.style.display = 'block';
 
-    const opt = {
-      margin: [0.5, 0.5, 0.5, 0.5],
-      filename: `Debate_${state.fileName || 'IA'}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { 
-        scale: 2,
-        useCORS: true,
-        logging: false
-      },
-      jsPDF: { 
-        unit: 'in', 
-        format: 'letter', 
-        orientation: 'portrait',
-        compress: true
-      },
-      pagebreak: { 
-        mode: ['avoid-all', 'css', 'legacy'],
-        avoid: ['div', 'b']
-      }
-    };
-
-    // @ts-ignore
-    window.html2pdf().set(opt).from(container).save().then(() => {
-      container.style.display = 'none';
-      container.innerHTML = '';
-    });
+  const opt = {
+    margin: [0.5, 0.5, 0.5, 0.5],
+    filename: `Debate_${state.fileName || 'IA'}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2,
+      useCORS: true,
+      logging: false
+    },
+    jsPDF: { 
+      unit: 'in', 
+      format: 'letter', 
+      orientation: 'portrait',
+      compress: true
+    },
+    pagebreak: { 
+      mode: ['avoid-all', 'css', 'legacy'],
+      avoid: ['div', 'b']
+    }
   };
+
+  try {
+    // @ts-ignore
+    await window.html2pdf().set(opt).from(container).save();
+  } catch (error) {
+    console.error('Error generando PDF:', error);
+  } finally {
+    container.style.display = 'none';
+    container.innerHTML = '';
+    setState(prev => ({ ...prev, isGenerating: false }));
+  }
+};
 
   const handleSpeakToggle = async (message: Message) => {
     if (playingId === message.id) {
