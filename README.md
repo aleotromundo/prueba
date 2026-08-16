@@ -1,20 +1,25 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# AstroNexo
 
-# Run and deploy your AI Studio app
+AstroNexo es una aplicación web en español para explorar cartas natales, sinastría, tránsitos, retorno solar y ascendente mediante cálculos locales y una interfaz visual cósmica.
 
-This contains everything you need to run your app locally.
+## Aplicación principal
 
-View your app in AI Studio: https://ai.studio/apps/drive/1odq_hD3RRu_5Ey5bKLgMf-Bsa-bjH4Ng
+La aplicación desplegable vive en la raíz del repositorio. Utiliza React, Vite, Express, tRPC, Drizzle y la autenticación integrada del entorno. Las herramientas de astrología se encuentran bajo `client/src/pages/` y el cálculo compartido bajo `client/src/lib/astrology.ts`.
 
-## Run Locally
+Comandos principales:
 
-**Prerequisites:**  Node.js
+```bash
+pnpm install
+pnpm dev
+pnpm test
+pnpm check
+pnpm build
+```
 
+## Proyecto original preservado
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+El contenido original que existía en este repositorio antes de la migración se conserva completo dentro de [`prueba/`](./prueba/). Esa carpeta es únicamente histórica y no forma parte del entrypoint ni del build de AstroNexo.
+
+## Alcance
+
+AstroNexo mantiene la carta natal con rueda interactiva, posiciones, casas iguales, aspectos y planetas dominantes; sinastría; tránsitos; retorno solar; ascendente; biblioteca editorial; referencias; y una interpretación conversacional con IA en la carta natal. La astrología se presenta como un lenguaje simbólico de reflexión y no como diagnóstico o predicción determinista.
