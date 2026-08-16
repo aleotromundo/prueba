@@ -3,6 +3,8 @@ import {
   calculateChart,
   calculateSolarReturn,
   circularDistance,
+  formatDegree,
+  localDateTimeToUtc,
   normalizeAngle,
   signAt,
   type BirthProfile,
@@ -36,7 +38,17 @@ describe("motor astrológico", () => {
     expect(chart.planets.every((planet) => planet.house >= 1 && planet.house <= 12)).toBe(true);
   });
 
-  it("encuentra un retorno solar cercano a la longitud solar natal", () => {
+  it("formatea grados sin producir minutos inválidos", () => {
+    expect(formatDegree(29.9999)).toBe("29° 59′");
+    expect(formatDegree(-0.5)).toBe("29° 30′");
+  });
+
+  it("convierte hora local usando el offset vigente de la zona", () => {
+    const instant = localDateTimeToUtc("2024-07-15", "12:00", "America/New_York");
+    expect(instant.toISOString()).toBe("2024-07-15T16:00:00.000Z");
+  });
+
+  it("encuentra un retorno solar cercano a la longitud solar natal", async () => {
     const natal = calculateChart(profile);
     const returnData = calculateSolarReturn(profile, 2026);
     const natalSun = natal.planets.find((planet) => planet.name === "Sol");

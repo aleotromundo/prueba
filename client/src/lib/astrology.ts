@@ -109,8 +109,9 @@ export function signAt(longitude: number) {
 
 export function formatDegree(degree: number) {
   const normalized = normalizeAngle(degree);
-  const whole = Math.floor(normalized % 30);
-  const minutes = Math.round(((normalized % 30) - whole) * 60);
+  const totalMinutes = Math.min(29 * 60 + 59, Math.round((normalized % 30) * 60));
+  const whole = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
   return `${whole}° ${String(minutes).padStart(2, "0")}′`;
 }
 
@@ -131,8 +132,14 @@ export function localDateTimeToUtc(date: string, time: string, timeZone: string)
   const [year, month, day] = date.split("-").map(Number);
   const [hours, minutes] = time.split(":").map(Number);
   const assumedUtc = new Date(Date.UTC(year, month - 1, day, hours, minutes));
-  const offset = getTimezoneOffsetMinutes(assumedUtc, timeZone);
-  return new Date(assumedUtc.getTime() - offset * 60_000);
+  let utcMilliseconds = assumedUtc.getTime();
+  // Re-evaluate the offset after applying it so DST transitions converge to the
+  // correct instant instead of relying on the offset at the initial guess.
+  for (let iteration = 0; iteration < 3; iteration += 1) {
+    const offset = getTimezoneOffsetMinutes(new Date(utcMilliseconds), timeZone);
+    utcMilliseconds = assumedUtc.getTime() - offset * 60_000;
+  }
+  return new Date(utcMilliseconds);
 }
 
 function obliquityOfEcliptic(date: Date) {
