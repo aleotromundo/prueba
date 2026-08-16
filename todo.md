@@ -1,0 +1,34 @@
+# Project TODO
+
+- [x] Implementar una página de inicio premium en español, con navegación principal, hero cósmico y accesos rápidos a las herramientas.
+- [x] Crear un sistema de datos y cálculos astronómicos que genere posiciones planetarias, signos, casas, ascendente y aspectos desde fecha, hora y coordenadas.
+- [x] Implementar el flujo de carta natal con entrada de fecha, hora y lugar de nacimiento, validación y resultado detallado.
+- [x] Construir una rueda zodiacal SVG interactiva con planetas, cúspides de casas, aspectos y leyenda accesible.
+- [x] Crear la calculadora de compatibilidad amorosa con dos perfiles, puntuación explicable y análisis de sinastría.
+- [x] Crear la calculadora de tránsitos actuales sobre una carta natal y su lectura contextual.
+- [x] Crear la calculadora de retorno solar para un año elegido.
+- [x] Crear la calculadora de ascendente y planetas dominantes.
+- [x] Redactar e integrar contenido editorial original sobre los doce signos, planetas, casas y aspectos.
+- [x] Aplicar una identidad visual cósmica, sofisticada, oscura, responsiva, accesible y sin ningún espacio publicitario.
+- [x] Incorporar navegación por rutas y estados de carga, error y resultados para todas las herramientas.
+- [x] Añadir pruebas unitarias de los cálculos, ejecutar validación de tipos y verificar la interfaz en escritorio y móvil.
+- [x] Añadir una leyenda accesible a la rueda natal con texto visible para símbolos, aspectos, casas y ascendente.
+- [x] Implementar estados uniformes de cálculo y manejo de errores para todas las herramientas basadas en datos de nacimiento.
+- [x] Completar la leyenda de la rueda con las convenciones de signos, planetas, aspectos, casas y ascendente.
+- [x] Añadir fallback de error y recálculo controlado para sinastría, tránsitos y retorno solar.
+- [x] Completar la leyenda de la rueda con todos los planetas y el aspecto neutro de conjunción.
+- [x] Investigar fuentes públicas fiables para profundizar los contenidos de signos, planetas, casas, aspectos, técnicas y ciclos.
+- [x] Redactar e integrar artículos astrológicos originales, con mayor profundidad y referencias visibles dentro de la biblioteca.
+- [ ] Verificar la actualización editorial en la interfaz, validar tipos y pruebas, y guardar una nueva versión revisable.
+- [x] Diseñar e integrar una escena 3D cósmica ligera con profundidad, órbitas y respuesta sutil al puntero.
+- [x] Incorporar efectos visuales progresivos y respetuosos de movimiento reducido, sin afectar la legibilidad ni la navegación.
+- [x] Medir la presentación responsiva de la capa 3D y validar su degradación elegante en dispositivos de menor potencia.
+- [x] Extender la ambientación inmersiva como un sistema continuo entre la portada, calculadoras, resultados y biblioteca editorial.
+- [x] Revisar la estructura, licencia y componentes del repositorio de referencia antes de reutilizar cualquier elemento visual.
+- [x] Mantener una copia aislada del repositorio de destino y documentar su compatibilidad antes de transferir AstroNexo.
+- [ ] Preparar una transferencia controlada de AstroNexo al repositorio de destino, sin sobrescribir ni publicar contenido sin confirmación.
+- [x] Verificar el estado de AstroNexo y del repositorio remoto antes de sincronizarlos con la autorización del usuario.
+- [ ] Sincronizar el código de AstroNexo con el repositorio remoto de forma reversible y comprobar el resultado.
+- [x] Mover la copia aislada del proyecto original a la carpeta local prueba, sin ejecutar ni mezclar su contenido.
+- [x] Usar el repositorio remoto autorizado exclusivamente como destino del código de AstroNexo.
+- [x] Documentar la compatibilidad y el aislamiento de la copia local en prueba antes de transferir AstroNexo.

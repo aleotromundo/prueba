@@ -1,0 +1,8 @@
+
+{
+  "name": "Arena de Debate IA",
+  "description": "Una plataforma interactiva donde dos agentes de IA se trenzan en un debate intelectual profundo sobre tus PDF o textos. Mirá cómo 'El Arquitecto' tira explicaciones complejas mientras 'El Escéptico' cuestiona cada premisa, hasta que vos decidas que lleguen a una conclusión.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

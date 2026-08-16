@@ -1,0 +1,12 @@
+import { useState } from "react";
+import { RotateCcw, Sparkles } from "lucide-react";
+import { BirthProfileForm } from "@/components/BirthProfileForm";
+import { ToolLayout } from "@/components/ToolLayout";
+import { formatDegree, type NatalChart } from "@/lib/astrology";
+
+export default function Ascendant() {
+  const [chart, setChart] = useState<NatalChart | null>(null);
+  return <ToolLayout eyebrow="Ascendente y dominantes" title="Tu horizonte y tus énfasis" intro="Una lectura concentrada del signo que ascendía por el este al nacer y de los planetas que adquieren mayor presencia en tu carta.">
+    {!chart ? <section className="calculator-grid"><div className="calculator-aside ascendant-aside"><span className="number-orb">05</span><h2>La puerta de tu mapa.</h2><p>El ascendente depende de la hora y de la localidad. Por eso una diferencia pequeña en estos datos puede cambiar el resultado.</p><span className="ascendant-glyph">↗</span></div><BirthProfileForm onGenerated={setChart} label="Calcular ascendente" /></section> : <section className="ascendant-result"><div className="result-toolbar"><div><span className="eyebrow"><Sparkles size={14} /> Resultado de la carta</span><h2>Ascendente en {chart.ascendantSign.name}</h2></div><button className="button button--ghost" onClick={() => setChart(null)}><RotateCcw size={16} /> Cambiar datos</button></div><div className="ascendant-main"><div className="ascendant-orb"><span>{chart.ascendantSign.symbol}</span><small>ASC</small></div><div><span className="eyebrow">El horizonte de nacimiento</span><h3>{formatDegree(chart.ascendant)} de {chart.ascendantSign.name}</h3><p>El ascendente es el punto zodiacal que estaba emergiendo en el horizonte oriental. En astrología, se vincula con la forma de iniciar, aparecer y entrar en contacto con el entorno.</p></div></div><section className="dominants-full"><div className="panel-heading"><span>Planetas dominantes</span><small>Estimación por luminosidad y angularidad</small></div><div className="dominant-cards">{chart.dominants.map((planet, index) => <article key={planet.name}><span>0{index + 1}</span><i>{planet.symbol}</i><h3>{planet.name}</h3><p>{index === 0 ? "Mayor énfasis relativo en el mapa." : index === 1 ? "Acompaña y modula la expresión central." : "Matiz presente en la configuración general."}</p><b>Índice {planet.score}</b></article>)}</div></section></section>}
+  </ToolLayout>;
+}

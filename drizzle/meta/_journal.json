@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1786889445371,
+      "tag": "0000_fair_mindworm",
+      "breakpoints": true
+    }
+  ]
+}
