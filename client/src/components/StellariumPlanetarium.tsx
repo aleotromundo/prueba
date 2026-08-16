@@ -17,13 +17,14 @@ type StelInstance = {
   setFont?: (name: string, url: string, scale: number) => void;
 };
 
-type StelFactory = (options: { wasmFile: string; canvas: HTMLCanvasElement; onReady: (instance: StelInstance) => void; onError?: (error: unknown) => void }) => void;
+type StelFactory = (options: { wasmFile: string; canvas: HTMLCanvasElement; translateFn?: (domain: string, value: string) => string; onReady: (instance: StelInstance) => void; onError?: (error: unknown) => void }) => void;
 
 declare global { interface Window { StelWebEngine?: StelFactory } }
 
 const MJD_UNIX_EPOCH = 40587;
 const radians = (degrees: number) => degrees * Math.PI / 180;
 const normalizeName = (value: string) => value.replace(/^NAME\s+/i, "").trim();
+const SPANISH_CONSTELLATIONS: Record<string, string> = { Leo: "Leo", Bootes: "Boyero", "Boötes": "Boyero", "Coma Berenices": "Cabellera de Berenice", Hercules: "Hércules", Orion: "Orión", Scorpius: "Escorpio", Sagittarius: "Sagitario", Capricornus: "Capricornio", Aquarius: "Acuario", Pisces: "Piscis", Aries: "Aries", Taurus: "Tauro", Gemini: "Géminis", Cancer: "Cáncer", Virgo: "Virgo", Libra: "Libra", Ophiuchus: "Ofiuco", Andromeda: "Andrómeda", Cassiopeia: "Casiopea", Cygnus: "Cisne", Canis: "Can Mayor", "Canis Major": "Can Mayor", "Canis Minor": "Can Menor", Centaurus: "Centauro", Crux: "Cruz del Sur", Hydra: "Hidra", Lyra: "Lira", Aquila: "Águila", Delphinus: "Delfín", Pegasus: "Pegaso", Perseus: "Perseo", Corona: "Corona", Corvus: "Cuervo", Lupus: "Lobo", Puppis: "Popa", Vela: "Vela", Carina: "Quilla", Triangulum: "Triángulo", Arcturus: "Arturo", Sirius: "Sirio", Canopus: "Canopo", Spica: "Espiga", Aldebaran: "Aldebarán" };
 
 let enginePromise: Promise<void> | null = null;
 function loadEngine() {
@@ -79,7 +80,8 @@ export function StellariumPlanetarium({ latitude, longitude, date, heading, onSe
       window.StelWebEngine({
         wasmFile: "/stellarium/engine/stellarium-web-engine.wasm",
         canvas: canvasRef.current,
-        onError: () => { setState("error"); setMessage("El motor Stellarium no pudo iniciar; el planetario local sigue disponible."); },
+        translateFn: (_domain, value) => SPANISH_CONSTELLATIONS[value] ?? value,
+        onError: () => { setState("error"); setMessage("Stellarium no pudo iniciar. No hay un planetario alternativo activo."); },
         onReady: (stel) => {
           if (disposed) return;
           instanceRef.current = stel;
@@ -107,10 +109,10 @@ export function StellariumPlanetarium({ latitude, longitude, date, heading, onSe
             onSelect?.(mapStellariumSelection(selected ? normalizeName(selected) : null));
           });
           setState("ready");
-          setMessage("Stellarium activo: estrellas Gaia, constelaciones, objetos profundos y Vía Láctea.");
+          setMessage("Stellarium activo: estrellas, constelaciones y objetos profundos en español.");
         },
       });
-    }).catch(() => { if (!disposed) { setState("error"); setMessage("No se pudo cargar el motor Stellarium; el planetario local sigue disponible."); } });
+    }).catch(() => { if (!disposed) { setState("error"); setMessage("No se pudo cargar Stellarium. No hay un planetario alternativo activo."); } });
     return () => { disposed = true; instanceRef.current = null; if (canvasRef.current) { canvasRef.current.width = 1; canvasRef.current.height = 1; } };
   }, []);
 

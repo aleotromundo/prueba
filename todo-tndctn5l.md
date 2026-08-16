@@ -276,3 +276,12 @@ La auditoría encontró diferencias en `server/_core/index.ts`, `server/_core/vi
 - [x] Añadir pruebas unitarias del mapeo de selecciones y validar responsive, rendimiento y build Vercel.
 - [x] Documentar licencia AGPL, fuente upstream y adaptación de compilación.
 - [x] Sincronizar GitHub/Vercel y guardar checkpoint después de verificar el resultado final.
+
+## Nuevo requisito: Stellarium único y experiencia en español
+
+- [x] Eliminar el selector de motor y cualquier fallback visual al planetario anterior en Cielo en vivo.
+- [x] Mantener Stellarium Web Engine como única escena celeste visible y mostrar un error explícito si no carga.
+- [x] Traducir al español las etiquetas, constelaciones y mensajes del engine siempre que el catálogo/sky culture lo permita.
+- [x] Traducir la capa de estado, atribución y selección de objetos de AstroNexo.
+- [x] Validar visualmente la experiencia única en español, responsive, sin regresiones y en producción.
+- [x] Sincronizar GitHub/Vercel y guardar checkpoint final.
