@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import SolarReturn from "./pages/SolarReturn";
 import Synastry from "./pages/Synastry";
 import Transits from "./pages/Transits";
+import LiveSky from "./pages/LiveSky";
 
 function Router() {
   return <Switch>
@@ -22,6 +23,7 @@ function Router() {
     <Route path="/retorno-solar" component={SolarReturn} />
     <Route path="/ascendente" component={Ascendant} />
     <Route path="/guia" component={Guide} />
+    <Route path="/cielo-en-vivo" component={LiveSky} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
   </Switch>;

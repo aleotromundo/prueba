@@ -9,6 +9,7 @@ const links = [
   ["/retorno-solar", "Retorno solar"],
   ["/ascendente", "Ascendente"],
   ["/guia", "Guía"],
+  ["/cielo-en-vivo", "Cielo en vivo"],
 ];
 
 export function SiteHeader() {

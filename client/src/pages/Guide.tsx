@@ -58,6 +58,10 @@ function useDetailSelection<T>() {
   return { selected, triggerRef, open, close };
 }
 
+function ZodiacGlyph({ symbol, element }: { symbol: string; element: string }) {
+  return <span className={`zodiac-glyph zodiac-glyph--${element.toLowerCase()}`} aria-hidden="true"><span>{symbol}</span></span>;
+}
+
 function SignsContent() {
   const { selected, triggerRef, open, close } = useDetailSelection<typeof signGuides[number]>();
   const detail = selected && {
@@ -73,7 +77,7 @@ function SignsContent() {
     ],
     references: ["history", "nasa"],
   } satisfies DetailItem;
-  return <><div className="guide-content__heading"><span className="eyebrow">Los doce signos</span><h2>Doce cualidades de expresión</h2><p>Un signo no agota a una persona. En una carta, describe el estilo que adopta un planeta o un punto determinado. <strong>Abre cualquier tarjeta</strong> para explorar su arquitectura simbólica.</p></div><div className="sign-grid">{signGuides.map((sign, index) => <button type="button" className="sign-card guide-card-button" key={sign.name} onClick={(event) => open(sign, event.currentTarget)} aria-label={`Abrir detalle de ${sign.name}`}><span>{ZODIAC[index]?.symbol}</span><small>{sign.element} · {sign.modality}</small><h3>{sign.name}</h3><strong>{sign.keyword}</strong><p>{sign.description}</p><em>Ver ficha completa →</em></button>)}</div><DetailDialog item={detail ?? null} onClose={close} returnFocusRef={triggerRef} /></>;
+  return <><div className="guide-content__heading"><span className="eyebrow">Los doce signos</span><h2>Doce cualidades de expresión</h2><p>Un signo no agota a una persona. En una carta, describe el estilo que adopta un planeta o un punto determinado. <strong>Abre cualquier tarjeta</strong> para explorar su arquitectura simbólica.</p></div><div className="sign-grid">{signGuides.map((sign, index) => <button type="button" className="sign-card guide-card-button" key={sign.name} onClick={(event) => open(sign, event.currentTarget)} aria-label={`Abrir detalle de ${sign.name}`}><ZodiacGlyph symbol={ZODIAC[index]?.symbol ?? sign.name.slice(0, 1)} element={sign.element} /><small>{sign.element} · {sign.modality}</small><h3>{sign.name}</h3><strong>{sign.keyword}</strong><p>{sign.description}</p><em>Ver ficha completa →</em></button>)}</div><DetailDialog item={detail ?? null} onClose={close} returnFocusRef={triggerRef} /></>;
 }
 
 function PlanetsContent() {
