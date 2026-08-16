@@ -212,3 +212,5 @@ a { color: inherit; text-decoration: none; }
 .live-sky-note strong { color: var(--ink); }
 @media (max-width: 860px) { .live-sky-intro, .live-sky-controls, .live-sky-readout { grid-template-columns: 1fr; }.live-sky-status { grid-template-columns: 1fr 1fr; }.live-sky-viewport { min-height: 430px; } }
 @media (max-width: 560px) { .live-sky-intro, .live-sky-controls > div, .live-sky-readout { padding: 16px; }.live-sky-status { grid-template-columns: 1fr; }.live-sky-viewport { min-height: 350px; }.live-sky-viewport svg { width: 100%; }.live-sky-readout h2 { font-size: 24px; } }
+
+.live-sky-warning { display: block; margin-top: 7px; color: #ffc2dc; font-family: var(--mono); font-size: 9px; line-height: 1.45; }
