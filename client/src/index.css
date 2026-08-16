@@ -311,3 +311,25 @@ a { color: inherit; text-decoration: none; }
 .live-sky-attribution a { color: #b8d5ff; text-decoration: underline; text-underline-offset: 2px; }
 @media (max-width: 720px) { .live-sky-scene { min-height: 500px; border-radius: 16px; background-position: center; }.live-sky-scene__topbar, .live-sky-scene__footer { left: 12px; right: 12px; font-size: 7px; letter-spacing: .05em; }.live-sky-scene__horizon { left: 12px; right: 12px; bottom: 48px; font-size: 7px; }.live-sky-scene__footer { bottom: 12px; flex-direction: column; gap: 3px; }.live-sky-attribution { font-size: 8px; line-height: 1.45; } }
 @media (prefers-reduced-motion: reduce) { .live-sky-scene, .live-sky-scene svg, .live-sky-crosshair { animation: none !important; transition: none !important; } }
+
+.live-sky-control-row, .live-sky-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.live-sky-control-row .button { margin-top: 14px; }
+.live-sky-tools { margin: 14px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.025); }
+.live-sky-tools .button { margin: 0; }
+.button--active { border-color: rgba(255,194,129,.75); background: rgba(255,171,97,.16); color: #ffe1ba; }
+.live-sky-range { display: inline-flex; align-items: center; gap: 8px; min-width: 220px; margin-left: auto; color: var(--soft); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.live-sky-range input { width: 100px; accent-color: #f5bc8d; }
+.live-sky-range strong { color: var(--ink); font-size: 11px; }
+.live-sky-horizon-view--night .live-sky-scene__veil { background: linear-gradient(180deg, rgba(12,0,0,.34), rgba(24,0,0,.38) 46%, rgba(10,0,0,.9) 100%); }
+.live-sky-horizon-view--night .live-sky-scene__atmosphere { filter: sepia(1) saturate(4) hue-rotate(300deg); opacity: .55; }
+.live-sky-camera-layer { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #03050b; }
+.live-sky-camera-layer video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); filter: saturate(.88) contrast(1.04); }
+.live-sky-scene--camera { background-image: none !important; background-color: #050811; }
+.live-sky-scene--camera .live-sky-scene__veil { background: linear-gradient(180deg, rgba(2,5,16,.06), rgba(2,6,18,.02) 46%, rgba(3,5,12,.52) 100%); }
+.live-sky-jpl-message { display: block; flex-basis: 100%; margin-top: 7px; font-family: var(--mono); font-size: 10px; line-height: 1.5; }
+.live-sky-jpl-message--verified { color: #9ce2be; }
+.live-sky-jpl-message--unavailable { color: #ffc2dc; }
+.live-sky-selected { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.live-sky-selected .button { margin: 0; }
+@media (max-width: 720px) { .live-sky-tools { align-items: stretch; }.live-sky-tools .button, .live-sky-range { width: 100%; min-width: 0; margin-left: 0; }.live-sky-range { justify-content: space-between; }.live-sky-range input { flex: 1; }.live-sky-selected { align-items: flex-start; flex-direction: column; }.live-sky-selected .button { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .live-sky-camera-layer video { transition: none !important; } }
