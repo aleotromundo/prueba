@@ -266,3 +266,13 @@ La auditoría encontró diferencias en `server/_core/index.ts`, `server/_core/vi
 - [x] Añadir comportamiento accesible de apertura/cierre y evitar que el menú quede debajo del contenido.
 - [x] Verificar la interacción en 390×844 y el comportamiento desktop sin regresiones.
 - [x] Sincronizar GitHub/Vercel y guardar checkpoint de la corrección.
+
+## Integración de motor de planetario Stellarium Web Engine
+
+- [x] Investigar motores abiertos, precisión, licencia, datasets y estrategia de build reproducible.
+- [x] Compilar Stellarium Web Engine y verificar que carga en navegador con WebGL/WASM.
+- [x] Integrar el engine en Cielo en vivo con estrellas, constelaciones, objetos profundos, Vía Láctea y Sol/Luna locales.
+- [x] Vincular la selección del planetario con el vocabulario de planetas y tarjetas de AstroNexo.
+- [x] Añadir pruebas unitarias del mapeo de selecciones y validar responsive, rendimiento y build Vercel.
+- [x] Documentar licencia AGPL, fuente upstream y adaptación de compilación.
+- [x] Sincronizar GitHub/Vercel y guardar checkpoint después de verificar el resultado final.
