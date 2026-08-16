@@ -2,6 +2,7 @@ import { type FormEvent, useState } from "react";
 import { CalendarDays, Check, Loader2, MapPin, Search } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { calculateChart, type BirthProfile, type LocationChoice, type NatalChart } from "@/lib/astrology";
+import { findLocalLocations } from "@/lib/locations";
 
 type Props = {
   onGenerated: (chart: NatalChart) => void;
@@ -29,8 +30,10 @@ export function BirthProfileForm({ onGenerated, label = "Generar carta", compact
       const results = await search.mutateAsync({ query: place });
       setMatches(results);
       if (results.length === 0) setFormError("No encontramos esa localidad. Prueba con ciudad y país.");
-    } catch (error) {
-      setFormError(error instanceof Error ? error.message : "No fue posible buscar la localidad.");
+    } catch {
+      const localResults = findLocalLocations(place);
+      setMatches(localResults);
+      setFormError(localResults.length > 0 ? "Búsqueda local: seleccioná una localidad para continuar." : "La búsqueda automática no está disponible. Probá con una ciudad conocida y su país.");
     }
   };
 
