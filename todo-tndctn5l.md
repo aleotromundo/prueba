@@ -244,17 +244,25 @@ La auditoría encontró diferencias en `server/_core/index.ts`, `server/_core/vi
 
 ## Nueva solicitud: WebXR AR auténtico
 
-- [ ] Auditar compatibilidad real de WebXR immersive-ar, hit-test, local-floor y tracking en navegadores y dispositivos actuales.
-- [ ] Implementar una ruta WebXR auténtica cuando el dispositivo la soporte, con sesión XR, cámara passthrough del sistema y escena espacial anclada al espacio local.
-- [ ] Mantener una separación visible y honesta entre WebXR AR, cámara con overlay de sensores y planetario local.
-- [ ] Añadir detección de capacidades, permisos, mensajes de compatibilidad y salida segura de la sesión XR.
-- [ ] Validar que los objetos astronómicos se posicionen usando la orientación espacial disponible y documentar límites de precisión.
-- [ ] Probar build, accesibilidad, responsive, fallback y producción; sincronizar GitHub/Vercel si el cambio es viable.
+- [x] Auditar compatibilidad real de WebXR immersive-ar, hit-test, local-floor y tracking en navegadores y dispositivos actuales.
+- [x] Implementar una ruta WebXR auténtica cuando el dispositivo la soporte, con sesión XR, cámara passthrough del sistema y escena espacial anclada al espacio local.
+- [x] Mantener una separación visible y honesta entre WebXR AR, cámara con overlay de sensores y planetario local.
+- [x] Añadir detección de capacidades, permisos, mensajes de compatibilidad y salida segura de la sesión XR.
+- [x] Validar que los objetos astronómicos se posicionen usando la orientación espacial disponible y documentar límites de precisión.
+- [x] Probar build, accesibilidad, responsive, fallback y producción; sincronizar GitHub/Vercel si el cambio es viable.
 
 ## Regla estricta de compatibilidad WebXR
 
-- [ ] Detectar al cargar si el navegador expone WebXR y si soporta `immersive-ar`.
-- [ ] No abrir cámara ni mostrar una superposición AR si la capacidad WebXR AR no está disponible.
-- [ ] Mostrar un diagnóstico visible y comprensible: dispositivo/navegador no compatible, HTTPS requerido o permisos pendientes.
-- [ ] Mantener el planetario local como alternativa separada, nunca como simulación de AR.
-- [ ] Validar estados de compatibilidad en móvil, escritorio, navegadores sin `navigator.xr` y producción.
+- [x] Detectar al cargar si el navegador expone WebXR y si soporta `immersive-ar`.
+- [x] No abrir cámara ni mostrar una superposición AR si la capacidad WebXR AR no está disponible.
+- [x] Mostrar un diagnóstico visible y comprensible: dispositivo/navegador no compatible, HTTPS requerido o permisos pendientes.
+- [x] Mantener el planetario local como alternativa separada, nunca como simulación de AR.
+- [x] Validar estados de compatibilidad en móvil, escritorio, navegadores sin `navigator.xr` y producción.
+
+## Bug reportado: menú hamburguesa móvil
+
+- [x] Auditar el componente de header y los estilos actuales del menú móvil.
+- [x] Corregir fondo, z-index, overlay, contraste, anchura y posición del panel hamburguesa.
+- [x] Añadir comportamiento accesible de apertura/cierre y evitar que el menú quede debajo del contenido.
+- [x] Verificar la interacción en 390×844 y el comportamiento desktop sin regresiones.
+- [x] Sincronizar GitHub/Vercel y guardar checkpoint de la corrección.

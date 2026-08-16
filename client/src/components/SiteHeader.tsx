@@ -32,17 +32,20 @@ export function SiteHeader() {
           ))}
         </nav>
         <Link href="/carta-natal" className="header-cta">Crear mi carta</Link>
-        <button className="mobile-menu" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Abrir navegación">
+        <button className="mobile-menu" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Cerrar navegación" : "Abrir navegación"}>
           {open ? <X size={21} /> : <Menu size={21} />}
         </button>
       </div>
       {open && (
-        <nav className="mobile-nav container" aria-label="Navegación móvil">
+        <>
+          <button className="mobile-nav-backdrop" type="button" onClick={close} aria-label="Cerrar navegación" />
+          <nav id="mobile-navigation" className="mobile-nav container" aria-label="Navegación móvil">
           {links.map(([href, label]) => (
             <Link key={href} href={href} onClick={close} className={location === href ? "nav-link nav-link--active" : "nav-link"}>{label}</Link>
           ))}
           <Link href="/carta-natal" onClick={close} className="header-cta">Crear mi carta</Link>
-        </nav>
+          </nav>
+        </>
       )}
     </header>
   );
