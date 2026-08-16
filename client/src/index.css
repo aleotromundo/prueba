@@ -262,3 +262,29 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .app-shell::before, .app-shell::after, .home-page .hero-orbit, .home-page .orbit, .home-page .hero-sun { animation: none; }
 }
+
+/* Rediseño del motor visual de Cielo en vivo */
+.live-sky-viewport { min-height: 620px; background: radial-gradient(circle at 50% 45%, rgba(54,74,159,.34), transparent 28%), linear-gradient(160deg, #0a1230, #050817 70%); box-shadow: inset 0 0 80px rgba(82,112,215,.12), 0 22px 70px rgba(0,0,0,.22); }
+.live-sky-viewport::before { inset: 4%; opacity: .24; background-size: 73px 89px; }
+.live-sky-viewport svg { width: min(94%, 610px); filter: drop-shadow(0 12px 28px rgba(5,8,30,.5)); }
+.live-sky-viewport svg text { font-size: 2.1px; font-weight: 600; paint-order: stroke; stroke: rgba(5,8,24,.55); stroke-width: .18px; }
+.live-sky-object { outline: none; cursor: pointer; }
+.live-sky-object circle { transition: r 180ms var(--ease-out), opacity 180ms var(--ease-out), stroke 180ms var(--ease-out); }
+.live-sky-object:hover circle, .live-sky-object:focus circle, .live-sky-object--selected circle { stroke: #fff; stroke-width: .65; }
+.live-sky-object:hover > circle:first-child, .live-sky-object:focus > circle:first-child, .live-sky-object--selected > circle:first-child { opacity: .32; }
+.live-sky-label { letter-spacing: .02em; }
+.live-sky-label--body { font-size: 2.35px !important; font-weight: 700; }
+.live-sky-axis-label { position: absolute; z-index: 2; color: rgba(216,227,255,.68); font-family: var(--mono); font-size: 9px; letter-spacing: .13em; }
+.live-sky-axis-label--top { top: 55px; left: 50%; transform: translateX(-50%); }
+.live-sky-axis-label--bottom { bottom: 55px; left: 50%; transform: translateX(-50%); }
+.live-sky-chart-caption { position: absolute; right: 22px; bottom: 44px; z-index: 2; color: rgba(216,227,255,.58); font-family: var(--mono); font-size: 9px; }
+.live-sky-legend { margin-top: 14px; padding: 18px 20px; border: 1px solid rgba(170,193,255,.2); border-radius: 16px; background: linear-gradient(135deg, rgba(35,49,103,.38), rgba(8,12,34,.7)); }
+.live-sky-legend__heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 13px; }
+.live-sky-legend__heading small { color: var(--soft); font-size: 10px; }
+.live-sky-legend__items { display: flex; flex-wrap: wrap; gap: 8px; }
+.live-sky-chip { min-height: 34px; display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid rgba(180,199,255,.16); border-radius: 999px; color: var(--ink); background: rgba(255,255,255,.035); font-family: var(--sans); font-size: 11px; transition: background 160ms var(--ease-out), border-color 160ms var(--ease-out), transform 160ms var(--ease-out); }
+.live-sky-chip:hover, .live-sky-chip:focus-visible, .live-sky-chip--selected { border-color: rgba(255,224,163,.7); background: rgba(255,219,150,.1); transform: translateY(-1px); }
+.live-sky-chip i { width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; }
+.live-sky-chip small { color: var(--soft); font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .05em; }
+@media (max-width: 860px) { .live-sky-viewport { min-height: 500px; }.live-sky-legend__heading { align-items: flex-start; flex-direction: column; gap: 5px; } }
+@media (max-width: 560px) { .live-sky-viewport { min-height: 390px; border-radius: 17px; }.live-sky-axis-label--top { top: 42px; }.live-sky-axis-label--bottom { bottom: 43px; }.live-sky-chart-caption { right: 14px; bottom: 32px; font-size: 8px; }.live-sky-legend { padding: 15px; }.live-sky-chip { min-height: 32px; padding: 6px 8px; font-size: 10px; } }
