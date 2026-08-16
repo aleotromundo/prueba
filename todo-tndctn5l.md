@@ -237,7 +237,24 @@ La auditoría encontró diferencias en `server/_core/index.ts`, `server/_core/vi
 
 ## Solicitud de sincronización automática GitHub–Vercel
 
-- [ ] Comparar el checkpoint actual de AstroNexo con el checkout local y el commit desplegado en GitHub/Vercel.
-- [ ] Publicar la versión actual en `aleotromundo/prueba` sin alterar la carpeta aislada `prueba/`.
-- [ ] Confirmar que Vercel construya el nuevo commit y que el dominio de producción sirva la versión actualizada de Cielo en vivo.
-- [ ] Documentar el commit, deployment, dominio y cualquier limitación restante sin esperar confirmación adicional.
+- [x] Comparar el checkpoint actual de AstroNexo con el checkout local y el commit desplegado en GitHub/Vercel.
+- [x] Publicar la versión actual en `aleotromundo/prueba` sin alterar la carpeta aislada `prueba/`.
+- [x] Confirmar que Vercel construya el nuevo commit y que el dominio de producción sirva la versión actualizada de Cielo en vivo.
+- [x] Documentar el commit, deployment, dominio y cualquier limitación restante sin esperar confirmación adicional.
+
+## Nueva solicitud: WebXR AR auténtico
+
+- [ ] Auditar compatibilidad real de WebXR immersive-ar, hit-test, local-floor y tracking en navegadores y dispositivos actuales.
+- [ ] Implementar una ruta WebXR auténtica cuando el dispositivo la soporte, con sesión XR, cámara passthrough del sistema y escena espacial anclada al espacio local.
+- [ ] Mantener una separación visible y honesta entre WebXR AR, cámara con overlay de sensores y planetario local.
+- [ ] Añadir detección de capacidades, permisos, mensajes de compatibilidad y salida segura de la sesión XR.
+- [ ] Validar que los objetos astronómicos se posicionen usando la orientación espacial disponible y documentar límites de precisión.
+- [ ] Probar build, accesibilidad, responsive, fallback y producción; sincronizar GitHub/Vercel si el cambio es viable.
+
+## Regla estricta de compatibilidad WebXR
+
+- [ ] Detectar al cargar si el navegador expone WebXR y si soporta `immersive-ar`.
+- [ ] No abrir cámara ni mostrar una superposición AR si la capacidad WebXR AR no está disponible.
+- [ ] Mostrar un diagnóstico visible y comprensible: dispositivo/navegador no compatible, HTTPS requerido o permisos pendientes.
+- [ ] Mantener el planetario local como alternativa separada, nunca como simulación de AR.
+- [ ] Validar estados de compatibilidad en móvil, escritorio, navegadores sin `navigator.xr` y producción.
