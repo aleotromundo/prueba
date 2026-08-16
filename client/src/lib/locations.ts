@@ -16,9 +16,9 @@ const LOCAL_LOCATIONS: LocationChoice[] = [
 ];
 
 export function findLocalLocations(query: string): LocationChoice[] {
-  const normalized = query.trim().toLocaleLowerCase("es");
+  const normalized = query.trim().toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
   if (!normalized) return [];
   return LOCAL_LOCATIONS.filter((location) =>
-    `${location.name} ${location.admin1} ${location.country}`.toLocaleLowerCase("es").includes(normalized),
+    `${location.name} ${location.admin1} ${location.country}`.toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").includes(normalized),
   ).slice(0, 5);
 }
