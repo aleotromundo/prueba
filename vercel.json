@@ -4,11 +4,6 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/carta-natal", "destination": "/index.html" },
-    { "source": "/sinastria", "destination": "/index.html" },
-    { "source": "/transitos", "destination": "/index.html" },
-    { "source": "/retorno-solar", "destination": "/index.html" },
-    { "source": "/ascendente", "destination": "/index.html" },
-    { "source": "/guia", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
