@@ -288,3 +288,26 @@ a { color: inherit; text-decoration: none; }
 .live-sky-chip small { color: var(--soft); font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .05em; }
 @media (max-width: 860px) { .live-sky-viewport { min-height: 500px; }.live-sky-legend__heading { align-items: flex-start; flex-direction: column; gap: 5px; } }
 @media (max-width: 560px) { .live-sky-viewport { min-height: 390px; border-radius: 17px; }.live-sky-axis-label--top { top: 42px; }.live-sky-axis-label--bottom { bottom: 43px; }.live-sky-chart-caption { right: 14px; bottom: 32px; font-size: 8px; }.live-sky-legend { padding: 15px; }.live-sky-chip { min-height: 32px; padding: 6px 8px; font-size: 10px; } }
+
+/* Visor horizontal inspirado en planetarios móviles */
+.live-sky-horizon-view { margin-top: 18px; }
+.live-sky-scene { position: relative; min-height: 590px; overflow: hidden; border: 1px solid rgba(181,203,255,.28); border-radius: 20px; background-color: #050811; background-position: center; background-size: cover; box-shadow: inset 0 -140px 160px rgba(2,5,14,.9), 0 24px 70px rgba(0,0,0,.28); }
+.live-sky-scene__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2,5,16,.12), rgba(2,6,18,.16) 46%, rgba(3,5,12,.84) 100%); pointer-events: none; }
+.live-sky-scene__atmosphere { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 22%, rgba(80,127,214,.18), transparent 50%), linear-gradient(180deg, transparent 48%, rgba(255,126,77,.08) 72%, rgba(2,5,13,.7) 100%); mix-blend-mode: screen; pointer-events: none; }
+.live-sky-scene__topbar, .live-sky-scene__footer { position: absolute; z-index: 3; left: 18px; right: 18px; display: flex; justify-content: space-between; gap: 12px; color: rgba(238,245,255,.78); font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.live-sky-scene__topbar { top: 17px; }
+.live-sky-scene__footer { bottom: 17px; color: rgba(235,242,255,.66); }
+.live-sky-scene__horizon { position: absolute; z-index: 3; left: 18px; right: 18px; bottom: 58px; display: flex; align-items: center; gap: 12px; color: rgba(238,245,255,.72); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.live-sky-scene__horizon i { height: 1px; flex: 1; background: linear-gradient(90deg, transparent, rgba(229,238,255,.55), transparent); }
+.live-sky-scene svg { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; overflow: visible; }
+.live-sky-scene-label { font-size: 2.25px; font-weight: 700; letter-spacing: .02em; paint-order: stroke; stroke: rgba(3,7,18,.8); stroke-width: .22px; }
+.live-sky-scene-label--body { font-size: 2.5px; font-weight: 800; }
+.live-sky-crosshair { position: absolute; z-index: 4; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); opacity: .5; pointer-events: none; }
+.live-sky-crosshair::before, .live-sky-crosshair::after, .live-sky-crosshair span::before, .live-sky-crosshair span::after { content: ""; position: absolute; background: rgba(235,243,255,.7); }
+.live-sky-crosshair::before { top: 0; bottom: 0; left: 50%; width: 1px; }.live-sky-crosshair::after { left: 0; right: 0; top: 50%; height: 1px; }
+.live-sky-crosshair span:first-child { position: absolute; inset: 14px; border: 1px solid rgba(235,243,255,.7); border-radius: 50%; }
+.live-sky-crosshair span:last-child { display: none; }
+.live-sky-attribution { margin: 7px 4px 0; color: var(--soft); font-family: var(--mono); font-size: 9px; }
+.live-sky-attribution a { color: #b8d5ff; text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 720px) { .live-sky-scene { min-height: 500px; border-radius: 16px; background-position: center; }.live-sky-scene__topbar, .live-sky-scene__footer { left: 12px; right: 12px; font-size: 7px; letter-spacing: .05em; }.live-sky-scene__horizon { left: 12px; right: 12px; bottom: 48px; font-size: 7px; }.live-sky-scene__footer { bottom: 12px; flex-direction: column; gap: 3px; }.live-sky-attribution { font-size: 8px; line-height: 1.45; } }
+@media (prefers-reduced-motion: reduce) { .live-sky-scene, .live-sky-scene svg, .live-sky-crosshair { animation: none !important; transition: none !important; } }
